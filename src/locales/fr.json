@@ -8,7 +8,7 @@
   "logo": "MonPortfolio",
   "contact": {
     "title": "Contact",
-    "subtitle": "Une idée de projet ? Un besoin en développement Web ou Web3 ? Envoyez-moi un message ou connectez-vous via mes réseaux 👇",
+    "subtitle": "Vous avez une idée de projet ? Besoin d’un accompagnement en développement Web ou Web3 ? Envoyez-moi un message ou contactez-moi via mes réseaux 👇",
     "form": {
       "name": "Votre nom",
       "email": "Votre email",
@@ -48,7 +48,7 @@
       {
         "id": "chesschain",
         "title": "ChessChain – Jeu d'échecs Web3",
-        "description": "Développement d’une application Web3 avec React et TypeScript permettant à deux joueurs de s’affronter aux échecs en misant des tokens USDC...",
+        "description": "Développement d’une application Web3 avec React et TypeScript permettant à deux joueurs de s’affronter aux échecs tout en misant des tokens USDC...",
         "link": "#",
         "github": "https://github.com/MohnajibG/ChessChain-microservices",
         "type": "Web3"
@@ -56,7 +56,7 @@
       {
         "id": "mytroc",
         "title": "MyTROC – Application d’échange de tokens",
-        "description": "Développement d’une interface Web3 avec React et TypeScript permettant aux utilisateurs de créer, utiliser ou annuler des échanges...",
+        "description": "Développement d’une interface Web3 avec React et TypeScript permettant aux utilisateurs de créer, exécuter ou annuler des échanges de tokens...",
         "link": "#",
         "github": "#",
         "type": "Web3"
@@ -64,15 +64,15 @@
       {
         "id": "ucwaves",
         "title": "UCWaves – Développement Fullstack Web3",
-        "description": "Développement complet d'une DApp Web3 et d'une extension Chrome UC Wallet...",
+        "description": "Développement complet d’une DApp Web3 et d’une extension Chrome UC Wallet...",
         "link": "#",
         "github": "#",
         "type": "Web3"
       },
       {
         "id": "sook",
-        "title": "SOOK! – Projet Personnel Fullstack",
-        "description": "Création d’une plateforme de marché en ligne. Backend en Node.js/Express...",
+        "title": "SOOK! – Projet personnel Fullstack",
+        "description": "Création d’une plateforme de marché en ligne. Backend développé en Node.js/Express...",
         "link": "https://sooki.netlify.app",
         "github": "https://github.com/MohnajibG/Forentend-SOOK",
         "type": "Fullstack"

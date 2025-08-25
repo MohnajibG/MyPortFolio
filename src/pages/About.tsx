@@ -23,8 +23,7 @@ const About = () => {
           className="text-3xl font-bold mb-6 flex items-center gap-3"
           style={{ color: "#00bcff" }}
         >
-          <span className="w-12 h-1 bg-[#e17100] rounded"></span>
-          About Me
+          <span className="w-12 h-1 bg-[#e17100] rounded"></span>À propos de moi
         </motion.h2>
 
         {/* Paragraphe */}
@@ -42,30 +41,45 @@ const About = () => {
           (<span className="text-[#e17100] font-semibold">React</span>,{" "}
           <span className="text-[#e17100] font-semibold">Node.js</span>,{" "}
           <span className="text-[#e17100] font-semibold">MongoDB</span>), j’ai
-          construit des projets complets allant d’API backend performantes à des
-          interfaces interactives orientées utilisateur.
+          conçu et réalisé des projets complets allant de{" "}
+          <span className="text-[#00bcff] font-semibold">
+            backends performants
+          </span>{" "}
+          à des{" "}
+          <span className="text-[#00bcff] font-semibold">
+            interfaces modernes et interactives
+          </span>{" "}
+          orientées utilisateur.
           <br />
           <br />
           Passionné par le{" "}
           <span className="text-[#00bcff] font-semibold">Web3</span>, j’ai
-          développé des dApps, intégrations WalletConnect, systèmes de staking
-          et extensions Chrome type MetaMask.
+          développé des applications décentralisées (dApps), intégré{" "}
+          <span className="text-[#e17100] font-semibold">WalletConnect</span>,
+          mis en place des{" "}
+          <span className="text-[#e17100] font-semibold">
+            systèmes de staking
+          </span>{" "}
+          et travaillé sur des{" "}
+          <span className="text-[#e17100] font-semibold">
+            extensions Chrome
+          </span>{" "}
+          similaires à MetaMask.
           <br />
           <br />
           Mon parcours atypique, avec plus de{" "}
           <span className="text-[#00bcff] font-semibold">
             10 ans d’expérience en management
           </span>{" "}
-          et pilotage de centres de profit, m’apporte une forte capacité à gérer
-          des projets complexes, à encadrer des équipes et à maintenir une
+          et en pilotage de centres de profit, m’a donné une forte capacité à
+          gérer des projets complexes, à encadrer des équipes et à maintenir une
           exigence de qualité élevée.
           <br />
           <br />
           Rigoureux, autonome et orienté produit, je conçois des solutions
-          modernes, sécurisées et scalables, tout en gardant une approche
-          centrée sur
+          modernes, sécurisées et évolutives, tout en gardant une approche
+          centrée sur{" "}
           <span className="text-[#e17100] font-semibold">
-            {" "}
             l’expérience utilisateur
           </span>
           .

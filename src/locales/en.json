@@ -1,82 +1,166 @@
 {
-  "navbar": {
-    "home": "Home",
-    "about": "About",
-    "projects": "Projects",
-    "contact": "Contact"
-  },
-  "logo": "MyPortfolio",
-  "contact": {
-    "title": "Contact",
-    "subtitle": "Have a project idea? Need help with Web or Web3 development? Send me a message or connect through my networks 👇",
-    "form": {
-      "name": "Your name",
-      "email": "Your email",
-      "message": "Your message",
-      "send": "Send"
+  "fr": {
+    "navbar": {
+      "home": "Accueil",
+      "about": "À propos",
+      "projects": "Projets",
+      "contact": "Contact"
     },
-    "links": {
-      "email": "Email",
-      "phone": "Phone"
+    "logo": "MonPortfolio",
+    "contact": {
+      "title": "Contact",
+      "subtitle": "Une idée de projet ? Besoin d’aide en développement Web ou Web3 ? Envoyez-moi un message ou contactez-moi via mes réseaux 👇",
+      "form": {
+        "name": "Votre nom",
+        "email": "Votre email",
+        "message": "Votre message",
+        "send": "Envoyer"
+      },
+      "links": {
+        "email": "Email",
+        "phone": "Téléphone"
+      }
+    },
+    "home": {
+      "name": "Mohammed Najib GUERCHAOUI",
+      "role": "Développeur Web Fullstack",
+      "alt": "Photo de profil",
+      "techs": [
+        "React.js",
+        "TypeScript",
+        "Node.js",
+        "MongoDB",
+        "TailwindCSS",
+        "Ethers.js",
+        "Web3",
+        "Solidity",
+        "Hardhat",
+        "CSS",
+        "JavaScript",
+        "Express.js",
+        "HTML",
+        "Git",
+        "GitHub"
+      ]
+    },
+    "projects": {
+      "title": "Mes Projets",
+      "items": [
+        {
+          "id": "chesschain",
+          "title": "ChessChain – Jeu d’échecs Web3",
+          "description": "Développement d’une application Web3 avec React et TypeScript permettant à deux joueurs de s’affronter aux échecs en misant des tokens USDC...",
+          "link": "#",
+          "github": "https://github.com/MohnajibG/ChessChain-microservices",
+          "type": "Web3"
+        },
+        {
+          "id": "mytroc",
+          "title": "MyTROC – Application d’échange de tokens",
+          "description": "Développement d’une interface Web3 avec React et TypeScript permettant aux utilisateurs de créer, utiliser ou annuler des échanges de tokens...",
+          "link": "#",
+          "github": "#",
+          "type": "Web3"
+        },
+        {
+          "id": "ucwaves",
+          "title": "UCWaves – Développement Web3 Fullstack",
+          "description": "Développement complet d’une DApp Web3 et d’une extension Chrome UC Wallet...",
+          "link": "#",
+          "github": "#",
+          "type": "Web3"
+        },
+        {
+          "id": "sook",
+          "title": "SOOK! – Projet personnel Fullstack",
+          "description": "Création d’une plateforme de e-commerce. Backend en Node.js/Express...",
+          "link": "https://sooki.netlify.app",
+          "github": "https://github.com/MohnajibG/Forentend-SOOK",
+          "type": "Fullstack"
+        }
+      ]
     }
   },
-  "home": {
-    "name": "Mohammed Najib GUERCHAOUI",
-    "role": "Développeur Web Fullstack",
-    "alt": "Photo de profil",
-    "techs": [
-      "React.js",
-      "TypeScript",
-      "Node.js",
-      "MongoDB",
-      "TailwindCSS",
-      "Ethers.js",
-      "Web3",
-      "Solidity",
-      "Hardhat",
-      "CSS",
-      "JavaScript",
-      "Express.js",
-      "HTML",
-      "Git",
-      "GitHub"
-    ]
-  },
-  "projects": {
-    "title": "My Projects",
-    "items": [
-      {
-        "id": "chesschain",
-        "title": "ChessChain – Web3 Chess Game",
-        "description": "Development of a Web3 application with React and TypeScript allowing two players to compete in chess while betting USDC tokens...",
-        "link": "#",
-        "github": "https://github.com/MohnajibG/ChessChain-microservices",
-        "type": "Web3"
+  "en": {
+    "navbar": {
+      "home": "Home",
+      "about": "About",
+      "projects": "Projects",
+      "contact": "Contact"
+    },
+    "logo": "MyPortfolio",
+    "contact": {
+      "title": "Contact",
+      "subtitle": "Have a project idea? Need help with Web or Web3 development? Send me a message or connect through my networks 👇",
+      "form": {
+        "name": "Your name",
+        "email": "Your email",
+        "message": "Your message",
+        "send": "Send"
       },
-      {
-        "id": "mytroc",
-        "title": "MyTROC – Token Exchange App",
-        "description": "Development of a Web3 interface with React and TypeScript allowing users to create, use, or cancel token swaps...",
-        "link": "#",
-        "github": "#",
-        "type": "Web3"
-      },
-      {
-        "id": "ucwaves",
-        "title": "UCWaves – Fullstack Web3 Development",
-        "description": "Complete development of a Web3 DApp and UC Wallet Chrome extension...",
-        "link": "#",
-        "github": "#",
-        "type": "Web3"
-      },
-      {
-        "id": "sook",
-        "title": "SOOK! – Fullstack Personal Project",
-        "description": "Creation of an online marketplace platform. Backend in Node.js/Express...",
-        "link": "https://sooki.netlify.app",
-        "github": "https://github.com/MohnajibG/Forentend-SOOK",
-        "type": "Fullstack"
+      "links": {
+        "email": "Email",
+        "phone": "Phone"
       }
-    ]
+    },
+    "home": {
+      "name": "Mohammed Najib GUERCHAOUI",
+      "role": "Fullstack Web Developer",
+      "alt": "Profile picture",
+      "techs": [
+        "React.js",
+        "TypeScript",
+        "Node.js",
+        "MongoDB",
+        "TailwindCSS",
+        "Ethers.js",
+        "Web3",
+        "Solidity",
+        "Hardhat",
+        "CSS",
+        "JavaScript",
+        "Express.js",
+        "HTML",
+        "Git",
+        "GitHub"
+      ]
+    },
+    "projects": {
+      "title": "My Projects",
+      "items": [
+        {
+          "id": "chesschain",
+          "title": "ChessChain – Web3 Chess Game",
+          "description": "Development of a Web3 application with React and TypeScript allowing two players to compete in chess while betting USDC tokens...",
+          "link": "#",
+          "github": "https://github.com/MohnajibG/ChessChain-microservices",
+          "type": "Web3"
+        },
+        {
+          "id": "mytroc",
+          "title": "MyTROC – Token Exchange App",
+          "description": "Development of a Web3 interface with React and TypeScript allowing users to create, use, or cancel token swaps...",
+          "link": "#",
+          "github": "#",
+          "type": "Web3"
+        },
+        {
+          "id": "ucwaves",
+          "title": "UCWaves – Fullstack Web3 Development",
+          "description": "Complete development of a Web3 DApp and UC Wallet Chrome extension...",
+          "link": "#",
+          "github": "#",
+          "type": "Web3"
+        },
+        {
+          "id": "sook",
+          "title": "SOOK! – Fullstack Personal Project",
+          "description": "Creation of an online marketplace platform. Backend in Node.js/Express...",
+          "link": "https://sooki.netlify.app",
+          "github": "https://github.com/MohnajibG/Forentend-SOOK",
+          "type": "Fullstack"
+        }
+      ]
+    }
   }
 }
