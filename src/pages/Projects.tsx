@@ -1,0 +1,58 @@
+import ProjectCard from "../components/ProjectCard";
+
+const Projects = () => {
+  const projects = [
+    {
+      id: "chesschain",
+      title: "ChessChain – Jeu d'échecs Web3",
+      description:
+        "Développement d’une application Web3 avec React et TypeScript permettant à deux joueurs de s’affronter aux échecs en misant des tokens USDC. Intégration de RainbowKit/Wagmi pour la connexion wallet, gestion temps réel avec Socket.io, logique d’échecs via Chess.js et interactions on-chain avec Ethers.js.",
+      link: "#",
+      github: "https://github.com/MohnajibG/ChessChain-microservices",
+      type: "Web3",
+    },
+    {
+      id: "mytroc",
+      title: "MyTROC – Application d’échange de tokens",
+      description:
+        "Développement d’une interface Web3 avec React et TypeScript permettant aux utilisateurs de créer, utiliser ou annuler des échanges de tokens. Intégration de WalletConnect, animations avec Framer Motion, et logique conditionnelle basée sur l’adresse utilisateur.",
+      link: "#",
+      github: "#",
+      type: "Web3",
+    },
+    {
+      id: "ucwaves",
+      title: "UCWaves – Développement Fullstack Web3",
+      description:
+        "Développement complet d'une DApp Web3 et d'une extension Chrome UC Wallet (type MetaMask). Intégration AppKit, WalletConnect, Stripe, Uniswap V3 et Smart Wallet. Backend Node.js/MongoDB + FastAPI avec suivi des transactions on-chain et notifications admin.",
+      link: "#",
+      github: "#",
+      type: "Web3",
+    },
+    {
+      id: "sook",
+      title: "SOOK! – Projet Personnel Fullstack",
+      description:
+        "Création d’une plateforme de marché en ligne. Backend en Node.js/Express avec API REST sécurisée, MongoDB et authentification. Frontend en React + TypeScript avec formulaires validés, navigation via React Router et intégration avec Axios. Déploiement : Backend sur Northflank, Frontend sur Netlify.",
+      link: "https://sooki.netlify.app",
+      github: "https://github.com/MohnajibG/Forentend-SOOK",
+      type: "Fullstack",
+    },
+  ];
+
+  return (
+    <section className="section">
+      <h1 className="font-bold text-4xl text-sky-400 mb-16 text-center">
+        Mes Projets
+      </h1>
+
+      <div className="flex flex-wrap  items-center justify-center gap-6 px-6 md:px-10">
+        {projects.map((project) => (
+          <ProjectCard key={project.id} project={project} />
+        ))}
+      </div>
+    </section>
+  );
+};
+
+export default Projects;
