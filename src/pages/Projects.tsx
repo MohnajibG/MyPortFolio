@@ -43,7 +43,7 @@ const Projects = () => {
   return (
     <section className="section">
       <h1 className="font-bold text-4xl text-sky-400 mb-16 text-center">
-        Mes Projets
+        My Projects
       </h1>
 
       <div className="flex flex-wrap  items-center justify-center gap-6 px-6 md:px-10">
