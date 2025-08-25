@@ -43,14 +43,14 @@ const Navbar = () => {
       initial={{ y: -60, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="fixed top-0 left-0 w-full z-50 mt-4"
+      className="fixed top-0 left-0 w-full z-50 "
     >
-      <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4 shadow-lg">
+      <div className="w-full mx-auto flex items-center bg-sky-900 justify-between px-40 py-4 shadow-lg ">
         {/* Logo */}
         <motion.div whileHover={{ scale: 1.1 }}>
           <button
             onClick={() => handleScroll("home")}
-            className="text-3xl font-bold text-sky-200 hover:text-sky-400 transition-colors"
+            className="text-3xl font-bold text-sky-400 hover:text-orange-500 transition-colors"
           >
             MonPortfolio
           </button>
@@ -69,7 +69,7 @@ const Navbar = () => {
                 className={`transition-colors ${
                   activeSection === link.to
                     ? "text-orange-500"
-                    : "hover:text-orange-200"
+                    : "hover:text-sky-200"
                 }`}
               >
                 {link.label}

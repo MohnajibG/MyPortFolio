@@ -12,7 +12,7 @@ const sections = [
 ];
 
 const App = () => {
-  const [hideHeader, setHideHeader] = useState(false);
+  // const [hideHeader, setHideHeader] = useState(false);
   const [showFooter, setShowFooter] = useState(false);
 
   useEffect(() => {
@@ -25,7 +25,7 @@ const App = () => {
       const clientHeight = (main as HTMLElement).clientHeight;
 
       // Header disparaît si on a scrollé un peu
-      setHideHeader(scrollTop > 50);
+      // setHideHeader(scrollTop > 50);
 
       // Footer visible uniquement tout en bas
       setShowFooter(scrollTop + clientHeight >= scrollHeight - 10);
@@ -42,14 +42,9 @@ const App = () => {
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-br from-[#021b36] to-[#032c58] text-white">
       {/* Header animé */}
-      <motion.header
-        initial={{ y: 0 }}
-        animate={{ y: hideHeader ? -100 : 0 }}
-        transition={{ duration: 0.5, ease: "easeInOut" }}
-        className="sticky top-0 z-50 shadow-md"
-      >
+      <header className="sticky top-0 bg-white z-50 shadow-md">
         <Navbar />
-      </motion.header>
+      </header>
 
       {/* Contenu scrollable avec snap */}
       <main className="flex-grow h-screen overflow-y-scroll snap-y snap-mandatory">
