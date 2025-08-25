@@ -44,17 +44,15 @@ const App = () => {
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-br from-[#021b36] to-[#032c58] text-white">
       {/* Header animé */}
-      <header className="sticky top-0 bg-white z-50 shadow-md">
-        <Navbar />
-      </header>
-
+      <Navbar />
+      xe
       {/* Contenu scrollable avec snap */}
-      <main className="flex-grow h-screen overflow-y-scroll snap-y snap-mandatory">
+      <main className="flex-grow h-screen overflow-y-scroll snap-y snap-mandatory my-20  ">
         {sections.map(({ id, Component }, index) => (
           <section
             key={id}
             id={id}
-            className="snap-start  flex items-center justify-center px-6"
+            className="snap-start  flex items-center justify-center px-6 my-20"
           >
             <motion.div
               initial={{ opacity: 0, y: 50 }}
@@ -68,7 +66,6 @@ const App = () => {
           </section>
         ))}
       </main>
-
       {/* Footer animé */}
       <motion.footer
         initial={{ y: 100 }}

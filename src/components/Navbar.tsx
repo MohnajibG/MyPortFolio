@@ -1,14 +1,14 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState, useMemo } from "react";
 import { useTranslation } from "react-i18next";
-import { Menu, X } from "lucide-react"; // icônes burger et close
+import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
   const { t, i18n } = useTranslation();
   const [activeSection, setActiveSection] = useState("home");
   const [isOpen, setIsOpen] = useState(false);
 
-  // navLinks se recrée seulement quand la fonction de traduction change
+  // Liens traduits
   const navLinks = useMemo(
     () => [
       { to: "home", label: t("navbar.home") },
@@ -19,8 +19,10 @@ const Navbar = () => {
     [t]
   );
 
-  // Détection de la section visible
+  // Détection section visible (desktop seulement)
   useEffect(() => {
+    if (isOpen) return; // ⛔️ si menu mobile ouvert, ne pas relancer l'observer
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -38,17 +40,17 @@ const Navbar = () => {
     });
 
     return () => observer.disconnect();
-  }, [navLinks]);
+  }, [navLinks, isOpen]);
 
   const handleScroll = (id: string) => {
     const section = document.getElementById(id);
     if (section) {
       section.scrollIntoView({ behavior: "smooth" });
-      setIsOpen(false); // ferme le menu en mobile
+      setIsOpen(false); // ferme le menu mobile après clic
     }
   };
 
-  // Toggle langue FR <-> EN
+  // Toggle langue
   const toggleLanguage = () => {
     const newLang = i18n.language === "fr" ? "en" : "fr";
     i18n.changeLanguage(newLang);
@@ -63,24 +65,18 @@ const Navbar = () => {
     >
       <div className="w-full mx-auto flex items-center bg-sky-900/80 backdrop-blur-md justify-between px-6 md:px-40 py-4 shadow-lg">
         {/* Logo */}
-        <motion.div whileHover={{ scale: 1.1 }}>
-          <button
-            onClick={() => handleScroll("home")}
-            className="text-2xl md:text-3xl font-bold text-sky-400 hover:text-orange-500 transition-colors"
-          >
-            {t("logo")}
-          </button>
-        </motion.div>
+        <button
+          onClick={() => handleScroll("home")}
+          className="text-2xl md:text-3xl font-bold text-sky-400 hover:text-orange-500 transition-colors"
+        >
+          {t("logo")}
+        </button>
 
         {/* Menu Desktop */}
         <div className="hidden md:flex items-center space-x-6">
-          <ul className="flex space-x-4 md:space-x-8 font-semibold">
+          <ul className="flex space-x-8 font-semibold">
             {navLinks.map((link, idx) => (
-              <motion.li
-                key={idx}
-                whileHover={{ scale: 1.1 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
+              <li key={idx}>
                 <button
                   onClick={() => handleScroll(link.to)}
                   className={`transition-colors ${
@@ -91,29 +87,27 @@ const Navbar = () => {
                 >
                   {link.label}
                 </button>
-              </motion.li>
+              </li>
             ))}
           </ul>
 
-          {/* Bouton FR/EN */}
-          <motion.button
-            whileHover={{ scale: 1.1 }}
+          {/* Bouton langue */}
+          <button
             onClick={toggleLanguage}
-            className="px-3 py-2 rounded-lg border border-sky-400 text-sky-400 hover:bg-sky-400 hover:text-white font-semibold transition-colors"
+            className="px-3 py-2  border border-sky-400 text-sky-400 hover:bg-sky-400 hover:text-white font-semibold transition-colors"
           >
             {i18n.language.toUpperCase()}
-          </motion.button>
+          </button>
         </div>
 
         {/* Bouton Burger Mobile */}
         <div className="md:hidden flex items-center space-x-4">
-          <motion.button
-            whileHover={{ scale: 1.1 }}
+          <button
             onClick={toggleLanguage}
             className="px-3 py-2 rounded-lg border border-sky-400 text-sky-400 hover:bg-sky-400 hover:text-white font-semibold transition-colors"
           >
             {i18n.language.toUpperCase()}
-          </motion.button>
+          </button>
 
           <button
             onClick={() => setIsOpen(!isOpen)}
@@ -125,31 +119,42 @@ const Navbar = () => {
       </div>
 
       {/* Menu Mobile */}
-      {isOpen && (
-        <motion.div
-          initial={{ y: -20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.3 }}
-          className="md:hidden bg-sky-900/95 backdrop-blur-md px-6 py-6 shadow-lg"
-        >
-          <ul className="flex flex-col space-y-4 font-semibold">
-            {navLinks.map((link, idx) => (
-              <li key={idx}>
-                <button
-                  onClick={() => handleScroll(link.to)}
-                  className={`w-full text-left transition-colors ${
-                    activeSection === link.to
-                      ? "text-orange-500"
-                      : "hover:text-sky-200"
-                  }`}
-                >
-                  {link.label}
-                </button>
-              </li>
-            ))}
-          </ul>
-        </motion.div>
-      )}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.25 }}
+            className="fixed inset-0 z-50 md:hidden bg-sky-900/95 backdrop-blur-md flex flex-col items-center justify-center space-y-6"
+          >
+            <ul className="flex flex-col items-center space-y-6 font-semibold text-lg">
+              {navLinks.map((link, idx) => (
+                <li key={idx}>
+                  <button
+                    onClick={() => handleScroll(link.to)}
+                    className={`transition-colors ${
+                      activeSection === link.to
+                        ? "text-orange-500"
+                        : "text-white hover:text-sky-200"
+                    }`}
+                  >
+                    {link.label}
+                  </button>
+                </li>
+              ))}
+            </ul>
+
+            {/* Bouton langue */}
+            <button
+              onClick={toggleLanguage}
+              className="mt-10 px-4 py-2 border border-sky-400 text-sky-400 hover:bg-sky-400 hover:text-white font-semibold transition-colors"
+            >
+              {i18n.language.toUpperCase()}
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.nav>
   );
 };
