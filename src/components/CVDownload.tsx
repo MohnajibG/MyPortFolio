@@ -6,14 +6,14 @@ const CVDownload = () => {
     <section className="section text-center ">
       {/* <h2 className="text-3xl font-bold mb-8 text-[#00bcff]">Mon CV</h2> */}
 
-      <div className="flex justify-center gap-6">
+      <div className="flex justify-center ">
         {/* CV Français */}
         <motion.a
           href="/cv_fr.pdf"
           download="CV_MohammedNajib_FR.pdf"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
-          className="flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-white shadow-lg transition-colors"
+          className="flex items-center gap-2 px-6 py-3 rounded-l-lg font-semibold text-white shadow-lg transition-colors"
           style={{ backgroundColor: "#e17100" }}
         >
           <Download size={18} />
@@ -26,7 +26,7 @@ const CVDownload = () => {
           download="CV_MohammedNajib_EN.pdf"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
-          className="flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-white shadow-lg transition-colors"
+          className="flex items-center gap-2 px-6 py-3 rounded-r-lg font-semibold text-white shadow-lg transition-colors"
           style={{ backgroundColor: "#00bcff" }}
         >
           <Download size={18} />

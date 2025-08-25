@@ -1,8 +1,17 @@
 import { motion } from "framer-motion";
 import ProjectCard from "../components/ProjectCard";
 
+interface Project {
+  id: string;
+  title: string;
+  description: string;
+  link?: string;
+  github?: string;
+  type: string;
+}
+
 const Projects = () => {
-  const projects = [
+  const projects: Project[] = [
     {
       id: "chesschain",
       title: "ChessChain – Jeu d'échecs Web3",
@@ -43,6 +52,7 @@ const Projects = () => {
 
   return (
     <section className="section">
+      {/* Titre */}
       <motion.h2
         initial={{ opacity: 0, x: -40 }}
         whileInView={{ opacity: 1, x: 0 }}
@@ -55,7 +65,8 @@ const Projects = () => {
         My Projects
       </motion.h2>
 
-      <div className="flex flex-wrap  items-center justify-center gap-6 px-6 md:px-10">
+      {/* Liste des projets */}
+      <div className="flex flex-wrap items-center justify-center gap-6 px-6 md:px-10">
         {projects.map((project) => (
           <ProjectCard key={project.id} project={project} />
         ))}

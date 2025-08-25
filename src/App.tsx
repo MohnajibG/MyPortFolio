@@ -5,10 +5,12 @@ import About from "./pages/About";
 import Projects from "./pages/Projects";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
+import Contact from "./pages/Contact";
 const sections = [
   { id: "home", Component: Home },
   { id: "about", Component: About },
   { id: "projects", Component: Projects },
+  { id: "Contact", Component: Contact },
 ];
 
 const App = () => {

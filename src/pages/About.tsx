@@ -1,78 +1,109 @@
 import { motion } from "framer-motion";
+import { useEffect, useState, useMemo } from "react";
+import { useTranslation } from "react-i18next";
 
-const About = () => {
+const Navbar = () => {
+  const { t, i18n } = useTranslation();
+  const [activeSection, setActiveSection] = useState("home");
+
+  // Liste des liens (mémorisée pour éviter de recréer l'array à chaque render)
+  const navLinks = useMemo(
+    () => [
+      { to: "home", label: t("navbar.home") },
+      { to: "about", label: t("navbar.about") },
+      { to: "projects", label: t("navbar.projects") },
+      { to: "contact", label: t("navbar.contact") },
+    ],
+    [t]
+  );
+
+  // Détection de la section visible
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    navLinks.forEach((link) => {
+      const section = document.getElementById(link.to);
+      if (section) observer.observe(section);
+    });
+
+    return () => observer.disconnect();
+  }, [navLinks]);
+
+  const handleScroll = (id: string) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  // Toggle FR <-> EN
+  const toggleLanguage = () => {
+    const newLang = i18n.language === "fr" ? "en" : "fr";
+    i18n.changeLanguage(newLang);
+  };
+
   return (
-    <section
-      id="about"
-      className="min-h-screen flex items-center justify-center px-6"
+    <motion.nav
+      initial={{ y: -60, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="fixed top-0 left-0 w-full z-50"
     >
-      <motion.div
-        initial={{ opacity: 0, y: 60 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        viewport={{ once: true, amount: 0.3 }}
-        className="max-w-3xl mx-auto bg-gradient-to-br from-white/10 to-white/5 
-                   p-10 rounded-2xl shadow-2xl backdrop-blur-md border border-white/10"
-      >
-        {/* Titre */}
-        <motion.h2
-          initial={{ opacity: 0, x: -40 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-3xl font-bold mb-6 flex items-center gap-3"
-          style={{ color: "#00bcff" }}
-        >
-          <span className="w-12 h-1 bg-[#e17100] rounded"></span>
-          About Me
-        </motion.h2>
+      <div className="w-full mx-auto flex items-center bg-sky-900/80 backdrop-blur-md justify-between px-10 md:px-40 py-4 shadow-lg">
+        {/* Logo */}
+        <motion.div whileHover={{ scale: 1.1 }}>
+          <button
+            onClick={() => handleScroll("home")}
+            className="text-2xl md:text-3xl font-bold text-sky-400 hover:text-orange-500 transition-colors"
+          >
+            {t("logo")}
+          </button>
+        </motion.div>
 
-        {/* Paragraphe */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.3, duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-gray-200 leading-relaxed text-justify text-lg space-y-4"
-        >
-          Développeur Web Fullstack spécialisé en{" "}
-          <span className="text-[#e17100] font-semibold">
-            JavaScript/TypeScript
-          </span>{" "}
-          (<span className="text-[#e17100] font-semibold">React</span>,{" "}
-          <span className="text-[#e17100] font-semibold">Node.js</span>,{" "}
-          <span className="text-[#e17100] font-semibold">MongoDB</span>), j’ai
-          construit des projets complets allant d’API backend performantes à des
-          interfaces interactives orientées utilisateur.
-          <br />
-          <br />
-          Passionné par le{" "}
-          <span className="text-[#00bcff] font-semibold">Web3</span>, j’ai
-          développé des dApps, intégrations WalletConnect, systèmes de staking
-          et extensions Chrome type MetaMask.
-          <br />
-          <br />
-          Mon parcours atypique, avec plus de{" "}
-          <span className="text-[#00bcff] font-semibold">
-            10 ans d’expérience en management
-          </span>{" "}
-          et pilotage de centres de profit, m’apporte une forte capacité à gérer
-          des projets complexes, à encadrer des équipes et à maintenir une
-          exigence de qualité élevée.
-          <br />
-          <br />
-          Rigoureux, autonome et orienté produit, je conçois des solutions
-          modernes, sécurisées et scalables, tout en gardant une approche
-          centrée sur
-          <span className="text-[#e17100] font-semibold">
-            {" "}
-            l’expérience utilisateur
-          </span>
-          .
-        </motion.p>
-      </motion.div>
-    </section>
+        {/* Menu + Bouton FR/EN */}
+        <div className="flex items-center space-x-6">
+          <ul className="flex space-x-4 md:space-x-8 font-semibold">
+            {navLinks.map((link, idx) => (
+              <motion.li
+                key={idx}
+                whileHover={{ scale: 1.1 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                <button
+                  onClick={() => handleScroll(link.to)}
+                  className={`transition-colors ${
+                    activeSection === link.to
+                      ? "text-orange-500"
+                      : "hover:text-sky-200"
+                  }`}
+                >
+                  {link.label}
+                </button>
+              </motion.li>
+            ))}
+          </ul>
+
+          {/* Bouton FR/EN */}
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            onClick={toggleLanguage}
+            className="px-3 py-2 rounded-lg border border-sky-400 text-sky-400 hover:bg-sky-400 hover:text-white font-semibold transition-colors"
+          >
+            {i18n.language === "fr" ? "FR" : "EN"}
+          </motion.button>
+        </div>
+      </div>
+    </motion.nav>
   );
 };
 
-export default About;
+export default Navbar;
