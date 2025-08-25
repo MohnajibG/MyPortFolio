@@ -1,6 +1,11 @@
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 const About = () => {
+  const { t } = useTranslation();
+
+  const paragraphs = t("about.paragraphs", { returnObjects: true }) as string[];
+
   return (
     <section
       id="about"
@@ -23,67 +28,23 @@ const About = () => {
           className="text-3xl font-bold mb-6 flex items-center gap-3"
           style={{ color: "#00bcff" }}
         >
-          <span className="w-12 h-1 bg-[#e17100] rounded"></span>À propos de moi
+          <span className="w-12 h-1 bg-[#e17100] rounded"></span>
+          {t("about.title")}
         </motion.h2>
 
-        {/* Paragraphe */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.3, duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-gray-200 leading-relaxed text-justify text-lg space-y-4"
-        >
-          Développeur Web Fullstack spécialisé en{" "}
-          <span className="text-[#e17100] font-semibold">
-            JavaScript/TypeScript
-          </span>{" "}
-          (<span className="text-[#e17100] font-semibold">React</span>,{" "}
-          <span className="text-[#e17100] font-semibold">Node.js</span>,{" "}
-          <span className="text-[#e17100] font-semibold">MongoDB</span>), j’ai
-          conçu et réalisé des projets complets allant de{" "}
-          <span className="text-[#00bcff] font-semibold">
-            backends performants
-          </span>{" "}
-          à des{" "}
-          <span className="text-[#00bcff] font-semibold">
-            interfaces modernes et interactives
-          </span>{" "}
-          orientées utilisateur.
-          <br />
-          <br />
-          Passionné par le{" "}
-          <span className="text-[#00bcff] font-semibold">Web3</span>, j’ai
-          développé des applications décentralisées (dApps), intégré{" "}
-          <span className="text-[#e17100] font-semibold">WalletConnect</span>,
-          mis en place des{" "}
-          <span className="text-[#e17100] font-semibold">
-            systèmes de staking
-          </span>{" "}
-          et travaillé sur des{" "}
-          <span className="text-[#e17100] font-semibold">
-            extensions Chrome
-          </span>{" "}
-          similaires à MetaMask.
-          <br />
-          <br />
-          Mon parcours atypique, avec plus de{" "}
-          <span className="text-[#00bcff] font-semibold">
-            10 ans d’expérience en management
-          </span>{" "}
-          et en pilotage de centres de profit, m’a donné une forte capacité à
-          gérer des projets complexes, à encadrer des équipes et à maintenir une
-          exigence de qualité élevée.
-          <br />
-          <br />
-          Rigoureux, autonome et orienté produit, je conçois des solutions
-          modernes, sécurisées et évolutives, tout en gardant une approche
-          centrée sur{" "}
-          <span className="text-[#e17100] font-semibold">
-            l’expérience utilisateur
-          </span>
-          .
-        </motion.p>
+        {/* Paragraphes traduits */}
+        {paragraphs.map((text, idx) => (
+          <motion.p
+            key={idx}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.3 + idx * 0.2, duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-gray-200 leading-relaxed text-justify text-lg space-y-4 mb-4"
+          >
+            {text}
+          </motion.p>
+        ))}
       </motion.div>
     </section>
   );

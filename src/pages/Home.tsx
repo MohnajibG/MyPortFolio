@@ -10,7 +10,7 @@ const Home = () => {
   const techs: string[] = t("home.techs", { returnObjects: true }) as string[];
 
   return (
-    <section className="min-h-screen flex flex-col md:flex-row items-center justify-center gap-16 px-8 mb-100">
+    <section className="min-h-screen flex flex-col md:flex-row items-center justify-center gap-16 px-8 mb-">
       {/* Colonne gauche : Texte */}
       <motion.div
         initial={{ opacity: 0, x: -80 }}

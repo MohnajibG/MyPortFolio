@@ -47,7 +47,7 @@
     "items": [
       {
         "id": "chesschain",
-        "title": "ChessChain – Jeu d'échecs Web3",
+        "title": "ChessChain – Jeu d’échecs Web3",
         "description": "Développement d’une application Web3 avec React et TypeScript permettant à deux joueurs de s’affronter aux échecs tout en misant des tokens USDC...",
         "link": "#",
         "github": "https://github.com/MohnajibG/ChessChain-microservices",
@@ -77,6 +77,15 @@
         "github": "https://github.com/MohnajibG/Forentend-SOOK",
         "type": "Fullstack"
       }
+    ]
+  },
+  "about": {
+    "title": "À propos de moi",
+    "paragraphs": [
+      "Développeur Web Fullstack spécialisé en JavaScript/TypeScript (React, Node.js, MongoDB), j’ai conçu et réalisé des projets complets allant de backends performants à des interfaces modernes et interactives orientées utilisateur.",
+      "Passionné par le Web3, j’ai développé des applications décentralisées (dApps), intégré WalletConnect, mis en place des systèmes de staking et travaillé sur des extensions Chrome similaires à MetaMask.",
+      "Mon parcours atypique, avec plus de 10 ans d’expérience en management et en pilotage de centres de profit, m’a donné une forte capacité à gérer des projets complexes, à encadrer des équipes et à maintenir une exigence de qualité élevée.",
+      "Rigoureux, autonome et orienté produit, je conçois des solutions modernes, sécurisées et évolutives, tout en gardant une approche centrée sur l’expérience utilisateur."
     ]
   }
 }
