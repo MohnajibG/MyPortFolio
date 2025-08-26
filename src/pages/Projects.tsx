@@ -58,7 +58,7 @@ const Projects = () => {
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
-        className="text-3xl font-bold mb-6 flex items-center gap-3 ml-40"
+        className="text-3xl font-bold mb-6 flex items-center gap-3 md:ml-40"
         style={{ color: "#00bcff" }}
       >
         <span className="w-12 h-1 bg-[#e17100] rounded"></span>
