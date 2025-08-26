@@ -7,23 +7,20 @@ const About = () => {
   const paragraphs = t("about.paragraphs", { returnObjects: true }) as string[];
 
   return (
-    <section>
+    <section className="min-h-screen">
       {/* Titre */}
       <motion.h2
         initial={{ opacity: 0, x: -40 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
-        className="text-3xl font-bold mb-5 ml-6 flex items-center gap-3"
+        className="text-3xl font-bold mb-5 ml-6  md:mt-60 md:mb-14  md:ml-20 flex items-center gap-3"
         style={{ color: "#00bcff" }}
       >
         <span className="w-12 h-1 bg-[#e17100] rounded"></span>
         {t("about.title")}
       </motion.h2>
-      <div
-        id="about"
-        className="min-h-screen flex items-center justify-center px-6"
-      >
+      <div id="about" className="flex items-center justify-center px-6">
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           whileInView={{ opacity: 1, y: 0 }}
