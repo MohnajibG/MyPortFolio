@@ -1,6 +1,7 @@
 export interface Project {
   id: string;
   title: string;
+  logo?: string;
   description: string;
   category: string;
   link?: string;
@@ -15,7 +16,8 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: "chesschain",
-    title: "ChessChain – Jeu d'échecs Web3",
+    title: "ChessChain",
+    logo: "/logos/chesschain-logo.png",
     category: "Web3",
     description:
       "DApp permettant à deux joueurs de s’affronter aux échecs en misant des tokens USDC. Backend temps réel avec Socket.io, smart contracts Solidity déployés via Hardhat, intégration Ethers.js, et logique de jeu avec Chess.js.",
@@ -39,7 +41,8 @@ export const projects: Project[] = [
   },
   {
     id: "mytroc",
-    title: "MyTROC – Application d’échange de tokens",
+    title: "MyTROC",
+    logo: "/logos/mytroc-logo.png",
     category: "Web3",
     description:
       "Application décentralisée permettant de créer, annuler ou récupérer des échanges de tokens ERC-20 via des smart contracts d'escrow.",
@@ -57,20 +60,21 @@ export const projects: Project[] = [
       "Smart Contracts",
       "WalletConnect",
     ],
-    demo: "https://demo-mytroc.com",
+    demo: " ",
     details:
       "MyTROC est une DApp Web3 permettant aux utilisateurs de réaliser des échanges sécurisés de tokens via un système d’escrow. Les utilisateurs peuvent créer un trade, l’annuler ou le récupérer selon les conditions définies dans le smart contract. L’application intègre un Smart Wallet et WalletConnect pour la connexion et gère l’UX via React, Tailwind et Framer Motion.",
   },
 
   {
     id: "ucwaves",
-    title: "UCWaves – Développement Fullstack Web3",
+    title: "UCWaves",
+    logo: "/logos/ucwaves-logo.png",
     category: "Web3",
     description:
       "Développement complet d'une DApp Web3 et d'une extension Chrome UC Wallet (type MetaMask). Intégration AppKit, WalletConnect, Stripe Onramp, Uniswap V3 et Smart Wallet. Backend Node.js/MongoDB + FastAPI avec suivi des transactions on-chain et notifications admin.",
     image: "/images/ucwaves.png",
-    link: "https://ucWaves.com", // ✅ démo
-    github: "https://github.com/MohnajibG/", // ⚠️ adapte si le repo est public
+    link: "https://ucWaves.com",
+    github: "https://github.com/MohnajibG/",
     type: "Fullstack DApp",
     technologies: [
       "React",
@@ -91,7 +95,8 @@ export const projects: Project[] = [
   },
   {
     id: "sook",
-    title: "SOOK! – Marketplace en ligne",
+    title: "SOOK!",
+    logo: "/logos/sook-logo.png",
     category: "Fullstack",
     description:
       "SOOK est une plateforme de marché en ligne permettant aux utilisateurs de publier, rechercher et gérer des produits. Architecture complète avec frontend React/TypeScript et backend Node.js/MongoDB.",

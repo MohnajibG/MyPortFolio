@@ -5,7 +5,7 @@ import { projects } from "../data/projects";
 const Projects = () => {
   return (
     <section className="section">
-      {/* Titre */}
+      {/* Titre and logo */}
       <motion.h2
         initial={{ opacity: 0, x: -40 }}
         whileInView={{ opacity: 1, x: 0 }}

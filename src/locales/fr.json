@@ -64,7 +64,7 @@
       {
         "id": "ucwaves",
         "title": "UCWaves – Développement Fullstack Web3",
-        "description": "Développement complet d’une DApp Web3 et d’une extension Chrome UC Wallet...",
+        "description": "Plateforme Web3 complète avec DApp et extension Chrome UC Wallet. Intégration Stripe, Smart Wallets AppKit et swaps via Uniswap V3, avec backend Node.js/FastAPI pour suivi des transactions.",
         "link": "#",
         "github": "#",
         "type": "Web3"

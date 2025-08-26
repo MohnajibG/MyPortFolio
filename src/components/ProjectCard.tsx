@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 export interface Project {
   id: string;
   title: string;
+  logo?: string;
   description: string;
   type: string;
   image?: string;
@@ -22,25 +23,34 @@ const ProjectCard = ({ project }: { project: Project }) => {
     <>
       {/* Carte projet */}
       <div
-        className="w-full sm:w-[45%] lg:w-[40%] p-4 rounded-lg 
-        h-60
+        className="w-full sm:w-[45%] lg:w-[40%] p-6 rounded-lg 
                    bg-white/5 border border-white/10 shadow-lg 
-                   hover:scale-[1.02] transition-transform duration-300 cursor-pointer
-                   flex flex-col justify-between"
+                   hover:scale-[1.02] transition-transform duration-300 cursor-pointer"
       >
-        <h2 className="text-xl font-bold mb-2 text-orange-400">
-          {project.title}
-        </h2>
-        <p className="text-gray-300 text-sm leading-relaxed line-clamp-3 text-justify">
+        {/* Logo + Titre alignés */}
+        <div className="flex items-center justify-between mb-4">
+          {project.logo && (
+            <img
+              src={project.logo}
+              alt={`${project.title} logo`}
+              className="w-12 h-12 rounded-full object-cover border border-white/20"
+            />
+          )}
+          <h2 className="text-lg font-bold text-orange-400">{project.title}</h2>
+        </div>
+
+        {/* Description courte */}
+        <p className="text-gray-300 text-sm leading-relaxed line-clamp-3">
           {project.description}
         </p>
 
-        <div className="mt-4 flex justify-between items-center">
+        {/* Type + bouton modal */}
+        <div className="mt-6 flex justify-between items-center">
           <span
             className={`px-3 py-1 text-sm rounded-full ${
               project.type === "DApp"
                 ? "bg-purple-600/30 text-purple-300"
-                : project.type === "Multiservices DApp"
+                : project.type === "Fullstack"
                 ? "bg-red-600/30 text-red-300"
                 : project.type === "Fullstack DApp"
                 ? "bg-green-600/30 text-green-300"
@@ -59,7 +69,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
         </div>
       </div>
 
-      {/* Modal */}
+      {/* Modal (reste inchangé) */}
       {open && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm"
@@ -72,7 +82,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
             className="relative w-full max-w-3xl rounded-xl overflow-hidden shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* ✅ Background flouté + sombre */}
+            {/* Fond flouté */}
             {project.image && (
               <div
                 className="absolute inset-0 bg-cover bg-center blur-lg brightness-50"
@@ -80,9 +90,8 @@ const ProjectCard = ({ project }: { project: Project }) => {
               ></div>
             )}
 
-            {/* Contenu modal */}
+            {/* Contenu du modal */}
             <div className="relative z-10 p-8 text-white space-y-6 bg-black/50 backdrop-blur-md rounded-xl">
-              {/* Bouton fermer */}
               <button
                 onClick={() => setOpen(false)}
                 className="absolute top-4 right-4 text-2xl text-gray-300 hover:text-white"
@@ -90,20 +99,29 @@ const ProjectCard = ({ project }: { project: Project }) => {
                 ✕
               </button>
 
-              <h2 className="text-3xl font-bold text-justify">
-                {project.title}
-              </h2>
-              <p className="text-gray-200 text-justify">
+              {/* Logo + titre dans le modal */}
+              <div className="flex items-center justify-center gap-3">
+                {project.logo && (
+                  <img
+                    src={project.logo}
+                    alt={`${project.title} logo`}
+                    className="w-16 h-16 rounded-full object-cover border border-white/20"
+                  />
+                )}
+                <h2 className="text-3xl font-bold">{project.title}</h2>
+              </div>
+
+              <p className="text-gray-200">
                 {project.details || project.description}
               </p>
 
               {/* Technologies */}
               {project.technologies && (
-                <div className="flex flex-wrap gap-2 justify-center">
+                <div className="flex flex-wrap gap-2">
                   {project.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="bg-[#460809]/50  hover:bg-[#460809]/90  px-3 py-1 rounded-full text-sm"
+                      className="bg-white/20 px-3 py-1 rounded-full text-sm"
                     >
                       {tech}
                     </span>
@@ -118,7 +136,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
                     href={project.github}
                     target="_blank"
                     rel="noreferrer"
-                    className="px-4 py-2 bg-[#002c22]/40 hover:bg-[#002c22]/20 rounded-full"
+                    className="px-4 py-2 bg-white/10 hover:bg-white/40 rounded-full"
                   >
                     Code
                   </a>
@@ -128,19 +146,12 @@ const ProjectCard = ({ project }: { project: Project }) => {
                     href={project.demo}
                     target="_blank"
                     rel="noreferrer"
-                    className="px-4 py-2 bg-[#3c0366]/60 hover:bg-[#3c0366]/40 rounded-full"
+                    className="px-4 py-2 bg-white/10 hover:bg-white/40 rounded-full"
                   >
                     Démo
                   </a>
                 )}
               </div>
-              {project.image && (
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-auto mt-4 rounded-md shadow-lg"
-                />
-              )}
             </div>
           </motion.div>
         </div>
