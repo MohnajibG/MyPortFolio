@@ -50,7 +50,7 @@ const ProjectDetail = () => {
         )}
 
         {/* Liens */}
-        <div className="flex gap-4 justify-center mt-4">
+        <div className="flex gap-4 justify-center mt-4 overflow-y-auto">
           {project.github && (
             <a
               href={project.github}
