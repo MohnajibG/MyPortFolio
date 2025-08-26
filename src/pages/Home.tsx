@@ -17,7 +17,7 @@ const Home = () => {
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         className=" max-w-2xl bg-gradient-to-br from-white/10 to-white/5 
-                   p-10 rounded-t-3xl md:rounded-l-4xl shadow-2xl backdrop-blur-md border border-white/10 mt-20"
+                   p-5 rounded-t-3xl md:rounded-l-4xl shadow-2xl backdrop-blur-md border border-white/10 mt-20"
       >
         {/* Nom et titre */}
         <h1

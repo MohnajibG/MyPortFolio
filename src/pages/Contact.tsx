@@ -15,7 +15,7 @@ const Contact = () => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ once: true, amount: 0.3 }}
-        className="max-w-3xl w-full bg-gradient-to-br from-white/10 to-white/5 p-10 rounded-2xl shadow-2xl backdrop-blur-md border border-white/10"
+        className="max-w-3xl w-full bg-gradient-to-br from-white/10 to-white/5 p-5 rounded-2xl shadow-2xl backdrop-blur-md border border-white/10"
       >
         {/* Titre */}
         <motion.h2
