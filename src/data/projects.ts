@@ -24,7 +24,7 @@ export const projects: Project[] = [
     image: "/images/chesschain.png",
     link: "https://demo-chesschain.com", // ⚠️ à remplacer par ton lien réel
     github: "https://github.com/MohnajibG/ChessChain-microservices",
-    type: "Multiservices DApp",
+    type: "Multiservices",
     technologies: [
       "React",
       "TypeScript",
