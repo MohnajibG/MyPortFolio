@@ -9,9 +9,11 @@ interface Project {
 
 const ProjectCard = ({ project }: { project: Project }) => {
   return (
-    <div
-      key={project.id}
-      className="card w-full sm:w-[45%] lg:w-[40%] p-6 rounded-lg bg-white/5 border border-white/10 shadow-lg hover:scale-[1.02] transition-transform duration-300"
+    <a
+      href={project.link || project.github || "#"}
+      target="_blank"
+      rel="noreferrer"
+      className="block w-full sm:w-[45%] lg:w-[40%] p-6 rounded-lg bg-white/5 border border-white/10 shadow-lg hover:scale-[1.02] transition-transform duration-300"
     >
       <div>
         <h2 className="text-xl font-bold mb-6 text-orange-400">
@@ -35,29 +37,14 @@ const ProjectCard = ({ project }: { project: Project }) => {
 
         <div className="flex gap-2">
           {project.link && (
-            <a
-              href={project.link}
-              target="_blank"
-              rel="noreferrer"
-              className="button-primary text-sm px-4 py-2"
-            >
-              Demo
-            </a>
+            <span className="button-primary text-sm px-4 py-2">Demo</span>
           )}
           {project.github && (
-            <a
-              href={project.github}
-              target="_blank"
-              rel="noreferrer"
-              className="button-secondary text-sm px-4 py-2"
-            >
-              Code
-            </a>
+            <span className="button-secondary text-sm px-4 py-2">Code</span>
           )}
         </div>
       </div>
-    </div>
+    </a>
   );
 };
-
 export default ProjectCard;

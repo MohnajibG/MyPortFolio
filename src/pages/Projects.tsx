@@ -1,13 +1,17 @@
 import { motion } from "framer-motion";
 import ProjectCard from "../components/ProjectCard";
 
-interface Project {
+export interface Project {
   id: string;
   title: string;
   description: string;
   link?: string;
   github?: string;
   type: string;
+  image?: string; // ✅ optionnel
+  technologies?: string[]; // ✅ optionnel
+  demo?: string; // ✅ optionnel
+  details?: string; // ✅ optionnel
 }
 
 const Projects = () => {

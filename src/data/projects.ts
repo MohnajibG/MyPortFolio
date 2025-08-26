@@ -1,11 +1,15 @@
 export interface Project {
   id: string;
   title: string;
-  category: "Web3" | "Frontend" | "Backend";
   description: string;
-  image: string;
-  link: string;
-  github: string;
+  category: string;
+  link?: string;
+  github?: string;
+  type: string;
+  image?: string; // ✅ optionnel
+  technologies?: string[]; // ✅ optionnel
+  demo?: string; // ✅ optionnel
+  details?: string; // ✅ optionnel
 }
 
 export const projects: Project[] = [
@@ -17,6 +21,7 @@ export const projects: Project[] = [
     image: "/images/staking.png",
     link: "https://demo-staking.com",
     github: "https://github.com/tonprofil/staking-dapp",
+    type: "",
   },
   {
     id: "web3-2",
@@ -26,6 +31,7 @@ export const projects: Project[] = [
     image: "/images/wallet.png",
     link: "https://demo-wallet.com",
     github: "https://github.com/tonprofil/chrome-wallet",
+    type: "",
   },
   {
     id: "web3-3",
@@ -35,6 +41,7 @@ export const projects: Project[] = [
     image: "/images/uniswap.png",
     link: "https://demo-uniswap.com",
     github: "https://github.com/tonprofil/uniswap-fork",
+    type: "",
   },
   {
     id: "frontend-1",
@@ -44,6 +51,7 @@ export const projects: Project[] = [
     image: "/images/portfolio.png",
     link: "https://tonportfolio.com",
     github: "https://github.com/tonprofil/portfolio-v1",
+    type: "",
   },
   {
     id: "backend-1",
@@ -53,5 +61,6 @@ export const projects: Project[] = [
     image: "/images/api-blog.png",
     link: "https://api-blog.com",
     github: "https://github.com/tonprofil/blog-api",
+    type: "",
   },
 ];
