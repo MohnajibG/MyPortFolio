@@ -14,53 +14,104 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    id: "web3-1",
-    title: "DApp de Staking",
+    id: "chesschain",
+    title: "ChessChain – Jeu d'échecs Web3",
     category: "Web3",
-    description: "Application décentralisée pour staker des tokens ERC-20.",
-    image: "/images/staking.png",
-    link: "https://demo-staking.com",
-    github: "https://github.com/tonprofil/staking-dapp",
-    type: "",
+    description:
+      "DApp permettant à deux joueurs de s’affronter aux échecs en misant des tokens USDC. Backend temps réel avec Socket.io, smart contracts Solidity déployés via Hardhat, intégration Ethers.js, et logique de jeu avec Chess.js.",
+    image: "/images/chesschain.png",
+    link: "https://demo-chesschain.com", // ⚠️ à remplacer par ton lien réel
+    github: "https://github.com/MohnajibG/ChessChain-microservices",
+    type: "DApp",
+    technologies: [
+      "React",
+      "TypeScript",
+      "Node.js",
+      "Socket.io",
+      "Solidity",
+      "Hardhat",
+      "Ethers.js",
+      "Docker",
+    ],
+    demo: "https://demo-chesschain.com", // ⚠️ à compléter
+    details:
+      "ChessChain est une application Web3 innovante combinant un moteur d'échecs classique avec des enjeux blockchain. Les joueurs se connectent via wallet, placent des mises en USDC et jouent en temps réel. Le backend gère le matchmaking et la logique du jeu, tandis que les smart contracts sécurisent les transactions et mises en jeu.",
   },
   {
-    id: "web3-2",
-    title: "Extension Chrome Wallet",
+    id: "mytroc",
+    title: "MyTROC – Application d’échange de tokens",
     category: "Web3",
-    description: "Un wallet crypto sous forme d’extension Chrome.",
-    image: "/images/wallet.png",
-    link: "https://demo-wallet.com",
-    github: "https://github.com/tonprofil/chrome-wallet",
-    type: "",
+    description:
+      "Application décentralisée permettant de créer, annuler ou récupérer des échanges de tokens ERC-20 via des smart contracts d'escrow.",
+    image: "/images/mytroc.png",
+    link: "https://demo-mytroc.com", // ⚠️ à remplacer par ton vrai lien déployé
+    github: "https://github.com/MohnajibG/mytroc", // ⚠️ complète si tu veux
+    type: "DApp",
+    technologies: [
+      "React",
+      "TypeScript",
+      "Vite",
+      "TailwindCSS",
+      "Framer Motion",
+      "Ethers.js",
+      "Smart Contracts",
+      "WalletConnect",
+    ],
+    demo: "https://demo-mytroc.com",
+    details:
+      "MyTROC est une DApp Web3 permettant aux utilisateurs de réaliser des échanges sécurisés de tokens via un système d’escrow. Les utilisateurs peuvent créer un trade, l’annuler ou le récupérer selon les conditions définies dans le smart contract. L’application intègre un Smart Wallet et WalletConnect pour la connexion et gère l’UX via React, Tailwind et Framer Motion.",
   },
+
   {
-    id: "web3-3",
-    title: "Interface Uniswap custom",
+    id: "ucwaves",
+    title: "UCWaves – Développement Fullstack Web3",
     category: "Web3",
-    description: "Fork d’Uniswap avec un connecteur de wallet personnalisé.",
-    image: "/images/uniswap.png",
-    link: "https://demo-uniswap.com",
-    github: "https://github.com/tonprofil/uniswap-fork",
-    type: "",
+    description:
+      "Développement complet d'une DApp Web3 et d'une extension Chrome UC Wallet (type MetaMask). Intégration AppKit, WalletConnect, Stripe Onramp, Uniswap V3 et Smart Wallet. Backend Node.js/MongoDB + FastAPI avec suivi des transactions on-chain et notifications admin.",
+    image: "/images/ucwaves.png",
+    link: "https://ucWaves.com", // ✅ démo
+    github: "https://github.com/MohnajibG/", // ⚠️ adapte si le repo est public
+    type: "Fullstack DApp",
+    technologies: [
+      "React",
+      "TypeScript",
+      "TailwindCSS",
+      "Node.js",
+      "MongoDB",
+      "FastAPI",
+      "AppKit",
+      "WalletConnect",
+      "Stripe",
+      "Uniswap V3",
+      "Smart Contracts",
+    ],
+    demo: "https://ucWaves.com",
+    details:
+      "Projet réalisé pour NextGen Waves. UC Waves est une plateforme complète combinant une DApp Web3 et une extension Chrome type MetaMask. L'application permet l'achat de tokens via Stripe, l'intégration de Smart Wallets via AppKit, ainsi que le swap on-chain avec Uniswap V3. Le backend, développé en Node.js et MongoDB, assure le suivi des transactions et les notifications administratives, tandis que FastAPI gère certaines APIs spécialisées.",
   },
   {
-    id: "frontend-1",
-    title: "Portfolio V1",
-    category: "Frontend",
-    description: "Un site personnel moderne fait avec React + Tailwind.",
-    image: "/images/portfolio.png",
-    link: "https://tonportfolio.com",
-    github: "https://github.com/tonprofil/portfolio-v1",
-    type: "",
-  },
-  {
-    id: "backend-1",
-    title: "API Node.js pour Blog",
-    category: "Backend",
-    description: "API REST avec Node.js + MongoDB pour gérer un blog.",
-    image: "/images/api-blog.png",
-    link: "https://api-blog.com",
-    github: "https://github.com/tonprofil/blog-api",
-    type: "",
+    id: "sook",
+    title: "SOOK! – Marketplace en ligne",
+    category: "Fullstack",
+    description:
+      "SOOK est une plateforme de marché en ligne permettant aux utilisateurs de publier, rechercher et gérer des produits. Architecture complète avec frontend React/TypeScript et backend Node.js/MongoDB.",
+    image: "/images/sook.png",
+    link: "https://sooki.netlify.app",
+    github: "https://github.com/MohnajibG/Forentend-SOOK", // frontend
+    type: "Fullstack App",
+    technologies: [
+      "React",
+      "TypeScript",
+      "TailwindCSS",
+      "Vite",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "Netlify",
+      "Northflank",
+    ],
+    demo: "https://sooki.netlify.app",
+    details:
+      "Développement complet d’une marketplace avec React + Tailwind côté frontend et Node.js/Express + MongoDB côté backend. Déploiement du backend sur Northflank et du frontend sur Netlify. Fonctionnalités principales : gestion des annonces produits, authentification sécurisée, API REST, recherche et filtres avancés.",
   },
 ];

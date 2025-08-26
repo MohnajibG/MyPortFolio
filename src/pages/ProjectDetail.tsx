@@ -14,7 +14,7 @@ const ProjectDetail = () => {
 
   return (
     <article className="relative min-h-screen flex items-center justify-center text-white px-6 py-16">
-      {/* Background flou et gris */}
+      {/* Background flou */}
       <div
         className="absolute inset-0 bg-cover bg-center grayscale blur-lg opacity-30"
         style={{
@@ -25,28 +25,29 @@ const ProjectDetail = () => {
       {/* Overlay sombre */}
       <div className="absolute inset-0 bg-black/60"></div>
 
-      {/* Contenu animé */}
+      {/* Contenu */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         className="relative z-10 max-w-3xl text-center space-y-6 bg-black/30 backdrop-blur-md rounded-xl p-8 shadow-lg"
       >
-        {/* Titre & Description */}
         <h1 className="text-4xl font-bold">{project.title}</h1>
         <p className="text-lg text-gray-200">{project.description}</p>
 
         {/* Technologies */}
-        <div className="flex flex-wrap justify-center gap-2">
-          {project.technologies?.map((tech) => (
-            <span
-              key={tech}
-              className="bg-white/20 text-sm px-3 py-1 rounded-full shadow"
-            >
-              {tech}
-            </span>
-          ))}
-        </div>
+        {project.technologies && (
+          <div className="flex flex-wrap justify-center gap-2">
+            {project.technologies.map((tech) => (
+              <span
+                key={tech}
+                className="bg-white/20 text-sm px-3 py-1 rounded-full shadow"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+        )}
 
         {/* Liens */}
         <div className="flex gap-4 justify-center mt-4">
