@@ -7,7 +7,7 @@ export interface Project {
   logo?: string;
   description: string;
   type: string;
-  image?: string;
+  image?: string; // 🖼 miniature
   technologies?: string[];
   github?: string;
   demo?: string;
@@ -25,10 +25,10 @@ const ProjectCard = ({ project }: { project: Project }) => {
       <div
         className="w-full sm:w-[45%] lg:w-[40%] p-6 rounded-lg 
                    bg-white/5 border border-white/10 shadow-lg 
-                   hover:scale-[1.02] transition-transform duration-300 cursor-pointer"
+                   hover:scale-[1.02] transition-transform duration-300 cursor-pointer flex flex-col gap-4"
       >
-        {/* Logo + Titre alignés */}
-        <div className="flex items-center justify-between mb-4">
+        {/* Logo + Titre */}
+        <div className="flex items-center justify-between">
           {project.logo && (
             <img
               src={project.logo}
@@ -40,12 +40,12 @@ const ProjectCard = ({ project }: { project: Project }) => {
         </div>
 
         {/* Description courte */}
-        <p className="text-gray-300 text-sm leading-relaxed line-clamp-3">
+        <p className="text-gray-300 text-sm leading-relaxed line-clamp-3 text-justify">
           {project.description}
         </p>
 
         {/* Type + bouton modal */}
-        <div className="mt-6 flex justify-between items-center">
+        <div className="mt-auto flex justify-between items-center">
           <span
             className={`px-3 py-1 text-sm rounded-full ${
               project.type === "DApp"
@@ -69,7 +69,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
         </div>
       </div>
 
-      {/* Modal (reste inchangé) */}
+      {/* Modal */}
       {open && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm"
@@ -99,7 +99,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
                 ✕
               </button>
 
-              {/* Logo + titre dans le modal */}
+              {/* Logo + titre */}
               <div className="flex items-center justify-center gap-3">
                 {project.logo && (
                   <img
@@ -152,6 +152,16 @@ const ProjectCard = ({ project }: { project: Project }) => {
                   </a>
                 )}
               </div>
+              {/* Image banner */}
+              {project.image && (
+                <div className="w-full h-full rounded-lg overflow-hidden">
+                  <img
+                    src={project.image}
+                    alt={`${project.title} screenshot`}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              )}
             </div>
           </motion.div>
         </div>
