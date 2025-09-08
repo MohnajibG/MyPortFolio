@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, Phone } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import malt from "../../public/logos/malt.svg";
+import comeup from "../../public/logos/comeup.jpg";
 
 const Contact = () => {
   const { t } = useTranslation();
@@ -80,8 +82,9 @@ const Contact = () => {
             >
               <Linkedin size={22} /> LinkedIn
             </a>
+
             <a
-              href="mailto:ton.email@mail.com"
+              href="mailto:mngdevpro@gmail.com"
               className="flex items-center gap-2 hover:text-[#e17100] transition-colors"
             >
               <Mail size={22} /> {t("contact.links.email")}
@@ -91,6 +94,26 @@ const Contact = () => {
               className="flex items-center gap-2 hover:text-[#e17100] transition-colors"
             >
               <Phone size={22} /> {t("contact.links.phone")}
+            </a>
+          </div>
+          <div className="flex flex-wrap justify-center gap-6 mt-8">
+            <a
+              href="https://comeup.com/fr/@mnajibguerchaoui"
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-2 hover:text-[#e17100] transition-colors"
+            >
+              <img src={malt} alt="Malt" className="w-6 h-6 rounded-full" />
+              Malt
+            </a>
+            <a
+              href="https://www.malt.fr/profile/najibguerchaoui"
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-2 hover:text-[#e17100] transition-colors"
+            >
+              <img src={comeup} alt="ComeUp" className="w-6 h-6 rounded-full" />
+              ComeUp
             </a>
           </div>
         </motion.div>
