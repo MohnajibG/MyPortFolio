@@ -5,11 +5,13 @@ import About from "./pages/About";
 import Projects from "./pages/Projects";
 import Navbar from "./components/Navbar";
 import Contact from "./pages/Contact";
+import Freelance from "./pages/freelance";
 
 const sections = [
   { id: "home", Component: Home },
   { id: "about", Component: About },
   { id: "projects", Component: Projects },
+  { id: "freelance", Component: Freelance },
   { id: "contact", Component: Contact },
 ];
 

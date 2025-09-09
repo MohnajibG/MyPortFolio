@@ -14,6 +14,7 @@ const Navbar = () => {
       { to: "home", label: t("navbar.home") },
       { to: "about", label: t("navbar.about") },
       { to: "projects", label: t("navbar.projects") },
+      { to: "freelance", label: t("Freelance") },
       { to: "contact", label: t("navbar.contact") },
     ],
     [t]
