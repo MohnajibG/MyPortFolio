@@ -17,13 +17,13 @@ export const projects: Project[] = [
   {
     id: "todoapp",
     title: "TodoApp",
-    logo: "/logos/todoapp-logo.png",
+    logo: "/logos/todoApp-logo.png",
     category: "Fullstack",
     description:
       "Application de gestion de tâches avec authentification avec firebase, création, modification et suppression de tâches. Frontend React/TypeScript et backend par firebase.",
-    image: "/images/todoApp-logo.png",
+    image: "/images/togoApp.png",
     link: "https://todoliste-app.netlify.app/",
-    github: " ttps://github.com/MohnajibG/ChessChain-microservices", // ⚠️ à compléter
+    github: " ttps://github.com/MohnajibG/ChessChain-microservices",
     type: "Fullstack App",
     technologies: [
       "React",
@@ -34,6 +34,7 @@ export const projects: Project[] = [
       "Netlify",
       "Northflank",
     ],
+    demo: "https://todoliste-app.netlify.app/todos",
   },
   {
     id: "chesschain",
@@ -43,7 +44,7 @@ export const projects: Project[] = [
     description:
       "DApp permettant à deux joueurs de s’affronter aux échecs en misant des tokens USDC. Backend temps réel avec Socket.io, smart contracts Solidity déployés via Hardhat, intégration Ethers.js, et logique de jeu avec Chess.js.",
     image: "/images/chesschain.png",
-    link: "https://demo-chesschain.com", // ⚠️ à remplacer par ton lien réel
+    link: "https://demo-chesschain.com",
     github: "https://github.com/MohnajibG/ChessChain-microservices",
     type: "Multiservices",
     technologies: [
