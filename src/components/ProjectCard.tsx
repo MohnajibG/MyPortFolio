@@ -7,7 +7,7 @@ export interface Project {
   logo?: string;
   description: string;
   type: string;
-  image?: string; // 🖼 miniature
+  image?: string; // miniature
   technologies?: string[];
   github?: string;
   demo?: string;

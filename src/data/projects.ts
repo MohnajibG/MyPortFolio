@@ -15,6 +15,27 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: "todoapp",
+    title: "TodoApp",
+    logo: "/logos/todoapp-logo.png",
+    category: "Fullstack",
+    description:
+      "Application de gestion de tâches avec authentification avec firebase, création, modification et suppression de tâches. Frontend React/TypeScript et backend par firebase.",
+    image: "/images/todoApp-logo.png",
+    link: "https://todoliste-app.netlify.app/",
+    github: " ttps://github.com/MohnajibG/ChessChain-microservices", // ⚠️ à compléter
+    type: "Fullstack App",
+    technologies: [
+      "React",
+      "TypeScript",
+      "TailwindCSS",
+      "Vite",
+      "firebase",
+      "Netlify",
+      "Northflank",
+    ],
+  },
+  {
     id: "chesschain",
     title: "ChessChain",
     logo: "/logos/chesschain-logo.png",
