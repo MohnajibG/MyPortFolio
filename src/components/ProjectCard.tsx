@@ -50,6 +50,8 @@ const ProjectCard = ({ project }: { project: Project }) => {
             className={`px-3 py-1 text-sm rounded-full ${
               project.type === "DApp"
                 ? "bg-purple-600/30 text-purple-300"
+                : project.type === "Multiservices"
+                ? "bg-yellow-600/30 text-yellow-300"
                 : project.type === "Fullstack"
                 ? "bg-red-600/30 text-red-300"
                 : project.type === "Fullstack DApp"
