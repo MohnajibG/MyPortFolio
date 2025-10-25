@@ -34,6 +34,7 @@ const App = () => {
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-br from-[#021b36] to-[#032c58] text-white">
       {/* Header animé */}
+
       <Navbar />
 
       {/* Contenu scrollable avec snap */}

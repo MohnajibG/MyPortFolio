@@ -22,10 +22,7 @@ const Contact = () => {
         {t("contact.title")}
       </motion.h2>
 
-      <div
-        id="contact"
-        className=" flex items-center justify-center px-6 mb-10"
-      >
+      <div id="contact" className=" flex items-center justify-center p-6 mb-10">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -98,7 +95,7 @@ const Contact = () => {
           </div>
           <div className="flex flex-wrap justify-center gap-6 mt-8">
             <a
-              href="https://comeup.com/fr/@mnajibguerchaoui"
+              href="https://www.malt.fr/profile/najibguerchaoui"
               target="_blank"
               rel="noreferrer"
               className="flex items-center gap-2 hover:text-[#e17100] transition-colors"
@@ -107,7 +104,7 @@ const Contact = () => {
               Malt
             </a>
             <a
-              href="https://www.malt.fr/profile/najibguerchaoui"
+              href="https://comeup.com/fr/@mnajibguerchaoui"
               target="_blank"
               rel="noreferrer"
               className="flex items-center gap-2 hover:text-[#e17100] transition-colors"
