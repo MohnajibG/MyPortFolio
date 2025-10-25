@@ -69,6 +69,7 @@ const Contact = () => {
           <form ref={fromRef} onSubmit={sendEmail} className="space-y-4">
             <input
               type="text"
+              name="user_name"
               placeholder={t("contact.form.name")}
               className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:border-[#00bcff]"
             />
@@ -79,6 +80,7 @@ const Contact = () => {
               className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:border-[#00bcff]"
             />
             <textarea
+              name="message"
               placeholder={t("contact.form.message")}
               rows={5}
               className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:border-[#00bcff]"
