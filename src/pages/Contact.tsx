@@ -1,11 +1,42 @@
+import { useRef } from "react";
+import emailjs from "emailjs-com";
+
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, Phone } from "lucide-react";
+
 import { useTranslation } from "react-i18next";
+
 import malt from "../../public/logos/malt.svg";
 import comeup from "../../public/logos/comeup.jpg";
 
 const Contact = () => {
+  const fromRef = useRef<HTMLFormElement>(null);
   const { t } = useTranslation();
+
+  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (!fromRef.current) return;
+
+    emailjs
+      .sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        fromRef.current,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          alert(t("contact.form.success"));
+          fromRef.current?.reset();
+        },
+        (error) => {
+          console.log(error.text);
+          alert(t("contact.form.error"));
+        }
+      );
+  };
 
   return (
     <section className="min-h-screen">
@@ -35,7 +66,7 @@ const Contact = () => {
           </p>
 
           {/* Formulaire */}
-          <form className="space-y-4">
+          <form ref={fromRef} onSubmit={sendEmail} className="space-y-4">
             <input
               type="text"
               placeholder={t("contact.form.name")}
@@ -43,6 +74,7 @@ const Contact = () => {
             />
             <input
               type="email"
+              name="user_email"
               placeholder={t("contact.form.email")}
               className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:border-[#00bcff]"
             />
