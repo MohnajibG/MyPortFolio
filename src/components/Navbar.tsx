@@ -3,8 +3,6 @@ import { useEffect, useState, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { Menu, X } from "lucide-react";
 
-import logo from "../../public/logos/logomngdev.png";
-
 const Navbar = () => {
   const { t, i18n } = useTranslation();
   const [activeSection, setActiveSection] = useState("home");
@@ -16,7 +14,7 @@ const Navbar = () => {
       { to: "home", label: t("navbar.home") },
       { to: "about", label: t("navbar.about") },
       { to: "projects", label: t("navbar.projects") },
-      { to: "freelance", label: t("Freelance") },
+      { to: "freelance", label: t("navbar.freelance") },
       { to: "contact", label: t("navbar.contact") },
     ],
     [t]
@@ -64,60 +62,61 @@ const Navbar = () => {
       initial={{ y: -60, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="fixed top-0 left-0 w-full z-50"
+      className="fixed inset-x-0 top-4 z-50 flex justify-center px-4"
     >
-      <div className="w-full mx-auto flex items-center bg-sky-900/80 backdrop-blur-md justify-between px-6 md:px-40 py-4 shadow-lg">
+      <div className="flex w-full max-w-5xl items-center justify-between gap-4 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 shadow-[0_0_30px_-10px_rgba(0,188,255,0.35)] backdrop-blur-xl md:px-6">
         {/* Logo */}
-        <img src={logo} alt="mngdevpro logo" className="w-12 rounded-full" />
         <button
           onClick={() => handleScroll("home")}
-          className="text-2xl md:text-3xl font-bold text-sky-400 hover:text-orange-500 transition-colors"
+          className="flex items-center gap-2 font-mono text-sm font-semibold tracking-tight text-brand-cyan md:text-base"
         >
-          {t("logo")}
+          <img
+            src="/logos/logomngdev.png"
+            alt="mngdevpro logo"
+            className="h-8 w-8 rounded-full border border-white/15"
+          />
+          <span className="hidden sm:inline">{t("logo")}</span>
         </button>
+
         {/* Menu Desktop */}
+        <div className="hidden items-center gap-1 md:flex">
+          {navLinks.map((link) => (
+            <button
+              key={link.to}
+              onClick={() => handleScroll(link.to)}
+              className={`relative rounded-full px-4 py-2 font-mono text-xs uppercase tracking-widest transition-colors ${
+                activeSection === link.to
+                  ? "text-brand-abyss"
+                  : "text-white/60 hover:text-white"
+              }`}
+            >
+              {activeSection === link.to && (
+                <motion.span
+                  layoutId="nav-pill"
+                  className="absolute inset-0 rounded-full bg-brand-cyan"
+                  transition={{ type: "spring", duration: 0.5 }}
+                />
+              )}
+              <span className="relative z-10">{link.label}</span>
+            </button>
+          ))}
+        </div>
 
-        <div className="hidden md:flex items-center space-x-6">
-          <ul className="flex space-x-8 font-semibold">
-            {navLinks.map((link, idx) => (
-              <li key={idx}>
-                <button
-                  onClick={() => handleScroll(link.to)}
-                  className={`transition-colors ${
-                    activeSection === link.to
-                      ? "text-orange-500"
-                      : "hover:text-sky-200"
-                  }`}
-                >
-                  {link.label}
-                </button>
-              </li>
-            ))}
-          </ul>
-
+        <div className="flex items-center gap-3">
           {/* Bouton langue */}
           <button
             onClick={toggleLanguage}
-            className="px-3 py-2  border border-sky-400 text-sky-400 hover:bg-sky-400 hover:text-white font-semibold transition-colors"
-          >
-            {i18n.language.toUpperCase()}
-          </button>
-        </div>
-
-        {/* Bouton Burger Mobile */}
-        <div className="md:hidden flex items-center space-x-4">
-          <button
-            onClick={toggleLanguage}
-            className="px-3 py-2 rounded-lg border border-sky-400 text-sky-400 hover:bg-sky-400 hover:text-white font-semibold transition-colors"
+            className="rounded-full border border-white/15 px-3 py-1.5 font-mono text-xs font-semibold text-brand-cyan transition-colors hover:border-brand-cyan hover:bg-brand-cyan/10"
           >
             {i18n.language.toUpperCase()}
           </button>
 
+          {/* Bouton Burger Mobile */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="text-sky-400 hover:text-orange-500 transition-colors"
+            className="text-brand-cyan transition-colors hover:text-brand-amber md:hidden"
           >
-            {isOpen ? <X size={28} /> : <Menu size={28} />}
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </div>
@@ -130,17 +129,20 @@ const Navbar = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.25 }}
-            className="fixed inset-0 z-50 md:hidden bg-sky-900/95 backdrop-blur-md flex flex-col items-center justify-center space-y-6"
+            className="fixed inset-0 z-40 flex flex-col items-center justify-center gap-6 bg-brand-abyss md:hidden"
           >
-            <ul className="flex flex-col items-center space-y-6 font-semibold text-lg">
+            <ul className="flex flex-col items-center gap-6">
               {navLinks.map((link, idx) => (
-                <li key={idx}>
+                <li key={link.to} className="flex items-center gap-3">
+                  <span className="font-mono text-xs text-brand-amber">
+                    0{idx + 1}
+                  </span>
                   <button
                     onClick={() => handleScroll(link.to)}
-                    className={`transition-colors ${
+                    className={`text-2xl font-semibold transition-colors ${
                       activeSection === link.to
-                        ? "text-orange-500"
-                        : "text-white hover:text-sky-200"
+                        ? "text-brand-cyan"
+                        : "text-white hover:text-brand-cyan"
                     }`}
                   >
                     {link.label}
@@ -148,14 +150,6 @@ const Navbar = () => {
                 </li>
               ))}
             </ul>
-
-            {/* Bouton langue */}
-            <button
-              onClick={toggleLanguage}
-              className="mt-10 px-4 py-2 border border-sky-400 text-sky-400 hover:bg-sky-400 hover:text-white font-semibold transition-colors"
-            >
-              {i18n.language.toUpperCase()}
-            </button>
           </motion.div>
         )}
       </AnimatePresence>

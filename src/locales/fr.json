@@ -3,6 +3,7 @@
     "home": "Accueil",
     "about": "À propos",
     "projects": "Projets",
+    "freelance": "Freelance",
     "contact": "Contact"
   },
   "logo": "MonPortfolio",
@@ -44,40 +45,7 @@
   },
   "projects": {
     "title": "Mes Projets",
-    "items": [
-      {
-        "id": "chesschain",
-        "title": "ChessChain – Jeu d’échecs Web3",
-        "description": "Développement d’une application Web3 avec React et TypeScript permettant à deux joueurs de s’affronter aux échecs tout en misant des tokens USDC...",
-        "link": "#",
-        "github": "https://github.com/MohnajibG/ChessChain-microservices",
-        "type": "Web3"
-      },
-      {
-        "id": "mytroc",
-        "title": "MyTROC – Application d’échange de tokens",
-        "description": "Développement d’une interface Web3 avec React et TypeScript permettant aux utilisateurs de créer, exécuter ou annuler des échanges de tokens...",
-        "link": "#",
-        "github": "#",
-        "type": "Web3"
-      },
-      {
-        "id": "ucwaves",
-        "title": "UCWaves – Développement Fullstack Web3",
-        "description": "Plateforme Web3 complète avec DApp et extension Chrome UC Wallet. Intégration Stripe, Smart Wallets AppKit et swaps via Uniswap V3, avec backend Node.js/FastAPI pour suivi des transactions.",
-        "link": "#",
-        "github": "#",
-        "type": "Web3"
-      },
-      {
-        "id": "sook",
-        "title": "SOOK! – Projet personnel Fullstack",
-        "description": "Création d’une plateforme de marché en ligne. Backend développé en Node.js/Express...",
-        "link": "https://sooki.netlify.app",
-        "github": "https://github.com/MohnajibG/Forentend-SOOK",
-        "type": "Fullstack"
-      }
-    ]
+    "viewMore": "Voir plus →"
   },
   "about": {
     "title": "À propos de moi",
@@ -87,5 +55,10 @@
       "Mon parcours atypique, avec plus de 10 ans d’expérience en management et en pilotage de centres de profit, m’a donné une forte capacité à gérer des projets complexes, à encadrer des équipes et à maintenir une exigence de qualité élevée.",
       "Rigoureux, autonome et orienté produit, je conçois des solutions modernes, sécurisées et évolutives, tout en gardant une approche centrée sur l’expérience utilisateur."
     ]
+  },
+  "freelance": {
+    "title": "Mes profils freelance",
+    "malt": "Découvrez mon profil Malt et mes missions réalisées.",
+    "website": "Retrouvez mon site officiel : présentation, services et contact direct."
   }
 }

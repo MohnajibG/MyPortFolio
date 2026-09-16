@@ -1,5 +1,71 @@
 @import "tailwindcss";
 
+@theme {
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-brand-abyss: #020d1a;
+  --color-brand-navy: #021b36;
+  --color-brand-navy-deep: #032c58;
+  --color-brand-cyan: #00bcff;
+  --color-brand-amber: #e17100;
+}
+
 html {
   scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-display);
+}
+
+::selection {
+  background-color: var(--color-brand-cyan);
+  color: var(--color-brand-abyss);
+}
+
+/* Custom scrollbar for the snap-scrolling <main> */
+.app-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-brand-cyan) transparent;
+  scroll-padding-top: 6rem;
+}
+
+.app-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.app-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.app-scroll::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    var(--color-brand-cyan),
+    var(--color-brand-amber)
+  );
+  border-radius: 999px;
+}
+
+/* Faint blueprint grid used as a page-wide backdrop */
+.bg-blueprint {
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.05) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 42px 42px;
+  background-position: center top;
+}
+
+/* Subtle animated grain to break up flat gradients */
+.bg-grain {
+  position: fixed;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }

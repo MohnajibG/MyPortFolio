@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import profileImg from "../assets/profile.png";
 import Cv from "../components/CVDownload";
+import Panel from "../components/Panel";
 import { useTranslation } from "react-i18next";
 
 const Home = () => {
@@ -10,51 +11,43 @@ const Home = () => {
   const techs: string[] = t("home.techs", { returnObjects: true }) as string[];
 
   return (
-    <section className="min-h-screen flex flex-col md:flex-row items-center justify-center gap-16 px-8 mb-">
+    <section className="flex min-h-screen flex-col items-center justify-center gap-12 px-4 md:flex-row md:gap-16 md:px-8">
       {/* Colonne gauche : Texte */}
       <motion.div
         initial={{ opacity: 0, x: -80 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className=" max-w-2xl bg-gradient-to-br from-white/10 to-white/5 
-                   p-5 rounded-t-3xl md:rounded-l-4xl shadow-2xl backdrop-blur-md border border-white/10 mt-20"
+        className="w-full max-w-2xl"
       >
-        {/* Nom et titre */}
-        <h1
-          className="text-4xl md:text-5xl font-extrabold mb-4 tracking-wide text-center"
-          style={{ color: "#00bcff" }}
-        >
-          {t("home.name")}
-        </h1>
-        <h2
-          className="text-2xl md:text-3xl font-semibold mb-6 tracking-wide text-center"
-          style={{ color: "#e17100" }}
-        >
-          {t("home.role")}
-        </h2>
+        <Panel label="whoami.sh">
+          <p className="mb-4 font-mono text-xs text-white/40">
+            <span className="text-brand-amber">~/portfolio</span> $ whoami
+          </p>
 
-        {/* Boutons de téléchargement du CV */}
-        <div className="mb-8">
-          <Cv />
-        </div>
+          <h1 className="text-4xl font-extrabold tracking-tight text-brand-cyan md:text-5xl">
+            {t("home.name")}
+          </h1>
+          <h2 className="mt-2 font-mono text-lg font-medium text-brand-amber md:text-xl">
+            {t("home.role")}
+          </h2>
 
-        {/* Liste des techno */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.6, duration: 0.8 }}
-          className="max-w-10xl flex flex-wrap justify-center md:justify-start gap-3 hover:cursor-pointer"
-        >
-          {techs.map((tech, idx) => (
-            <motion.span
-              key={idx}
-              whileHover={{ scale: 1.1 }}
-              className="px-4 py-2 bg-white/10 hover:bg-orange-400/40 rounded-full text-sm font-medium shadow-xl transition-transform"
-            >
-              {tech}
-            </motion.span>
-          ))}
-        </motion.div>
+          <div className="mt-8 mb-8">
+            <Cv />
+          </div>
+
+          {/* Liste des techno */}
+          <div className="flex flex-wrap gap-2">
+            {techs.map((tech, idx) => (
+              <motion.span
+                key={idx}
+                whileHover={{ scale: 1.08 }}
+                className="rounded-md border border-white/10 bg-white/5 px-3 py-1.5 font-mono text-xs text-white/70 transition-colors hover:border-brand-cyan/50 hover:text-brand-cyan"
+              >
+                #{tech.toLowerCase().replace(/[.\s]/g, "")}
+              </motion.span>
+            ))}
+          </div>
+        </Panel>
       </motion.div>
 
       {/* Colonne droite : Image */}
@@ -62,14 +55,15 @@ const Home = () => {
         initial={{ opacity: 0, x: 80 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="flex-1 flex justify-center"
+        className="w-full max-w-sm"
       >
-        <img
-          src={profileImg}
-          alt={t("home.alt")}
-          className="max-w-3xl h-80 object-cover rounded-b-2xl  md:rounded-r-3xl shadow-4xl border-4 hover:scale-105 transition-transform duration-300"
-          style={{ borderColor: "#00bcff" }}
-        />
+        <Panel label="profile.png" bodyClassName="p-2">
+          <img
+            src={profileImg}
+            alt={t("home.alt")}
+            className="h-72 w-full rounded-lg object-cover md:h-96"
+          />
+        </Panel>
       </motion.div>
     </section>
   );

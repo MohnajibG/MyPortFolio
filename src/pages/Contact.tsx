@@ -1,13 +1,15 @@
 import { useRef } from "react";
-import emailjs from "emailjs-com";
+import emailjs from "@emailjs/browser";
 
-import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, Phone } from "lucide-react";
-
 import { useTranslation } from "react-i18next";
 
-import malt from "../../public/logos/malt.svg";
-import comeup from "../../public/logos/comeup.jpg";
+import Panel from "../components/Panel";
+import SectionTag from "../components/SectionTag";
+import Cta from "../components/Cta";
+
+const chipClasses =
+  "inline-flex items-center gap-2 rounded-md border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/80 transition-colors hover:border-brand-cyan/50 hover:text-brand-cyan";
 
 const Contact = () => {
   const fromRef = useRef<HTMLFormElement>(null);
@@ -26,129 +28,117 @@ const Contact = () => {
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       )
       .then(
-        (result) => {
-          console.log(result.text);
+        () => {
           alert(t("contact.form.success"));
           fromRef.current?.reset();
         },
-        (error) => {
-          console.log(error.text);
+        () => {
           alert(t("contact.form.error"));
         }
       );
   };
 
+  const fields = [
+    { name: "user_name", type: "text", key: "contact.form.name" },
+    { name: "user_email", type: "email", key: "contact.form.email" },
+  ] as const;
+
   return (
-    <section className="min-h-screen">
-      {/* Titre */}
-      <motion.h2
-        initial={{ opacity: 0, x: -40 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-        className="text-3xl font-bold mb-2 md:mt-60 md:mb-14  md:ml-20 ml-6 flex items-center gap-3"
-        style={{ color: "#00bcff" }}
-      >
-        <span className="w-12 h-1 bg-[#e17100] rounded"></span>
-        {t("contact.title")}
-      </motion.h2>
+    <section className="mx-auto w-full max-w-2xl px-2">
+      <SectionTag index="04" path="/contact" title={t("contact.title")} />
 
-      <div id="contact" className=" flex items-center justify-center p-6 mb-10">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          viewport={{ once: true, amount: 0.3 }}
-          className="max-w-3xl w-full bg-gradient-to-br from-white/10 to-white/5 p-5 rounded-2xl shadow-2xl backdrop-blur-md border border-white/10"
-        >
-          <p className="text-center text-gray-300 mb-8">
-            {t("contact.subtitle")}
-          </p>
+      <Panel label="contact.tsx" bodyClassName="p-6 md:p-8">
+        <p className="mb-8 text-center text-gray-300">
+          {t("contact.subtitle")}
+        </p>
 
-          {/* Formulaire */}
-          <form ref={fromRef} onSubmit={sendEmail} className="space-y-4">
-            <input
-              type="text"
-              name="user_name"
-              placeholder={t("contact.form.name")}
-              className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:border-[#00bcff]"
-            />
-            <input
-              type="email"
-              name="user_email"
-              placeholder={t("contact.form.email")}
-              className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:border-[#00bcff]"
-            />
+        {/* Formulaire */}
+        <form ref={fromRef} onSubmit={sendEmail} className="space-y-6">
+          {fields.map((field) => (
+            <div key={field.name} className="relative">
+              <span className="pointer-events-none absolute top-3 left-0 font-mono text-brand-cyan/50">
+                &gt;
+              </span>
+              <input
+                type={field.type}
+                name={field.name}
+                placeholder={t(field.key)}
+                className="w-full border-b border-white/15 bg-transparent py-3 pl-6 text-white placeholder-gray-500 transition-colors focus:border-brand-cyan focus:outline-none"
+              />
+            </div>
+          ))}
+          <div className="relative">
+            <span className="pointer-events-none absolute top-3 left-0 font-mono text-brand-cyan/50">
+              &gt;
+            </span>
             <textarea
               name="message"
               placeholder={t("contact.form.message")}
-              rows={5}
-              className="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:border-[#00bcff]"
+              rows={4}
+              className="w-full resize-none border-b border-white/15 bg-transparent py-3 pl-6 text-white placeholder-gray-500 transition-colors focus:border-brand-cyan focus:outline-none"
             ></textarea>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="w-full py-3 rounded-lg font-semibold shadow-lg transition-colors"
-              style={{ backgroundColor: "#e17100", color: "#fff" }}
-            >
-              {t("contact.form.send")}
-            </motion.button>
-          </form>
-
-          {/* Réseaux */}
-          <div className="flex flex-wrap justify-center gap-6 mt-8">
-            <a
-              href="https://github.com/MohnajibG"
-              target="_blank"
-              rel="noreferrer"
-              className="flex items-center gap-2 hover:text-[#e17100] transition-colors"
-            >
-              <Github size={22} /> GitHub
-            </a>
-            <a
-              href="https://www.linkedin.com/in/najib-guerchaoui/"
-              target="_blank"
-              rel="noreferrer"
-              className="flex items-center gap-2 hover:text-[#e17100] transition-colors"
-            >
-              <Linkedin size={22} /> LinkedIn
-            </a>
-
-            <a
-              href="mailto:mngdevpro@gmail.com"
-              className="flex items-center gap-2 hover:text-[#e17100] transition-colors"
-            >
-              <Mail size={22} /> {t("contact.links.email")}
-            </a>
-            <a
-              href="tel:0658748308"
-              className="flex items-center gap-2 hover:text-[#e17100] transition-colors"
-            >
-              <Phone size={22} /> {t("contact.links.phone")}
-            </a>
           </div>
-          <div className="flex flex-wrap justify-center gap-6 mt-8">
-            <a
-              href="https://www.malt.fr/profile/najibguerchaoui"
-              target="_blank"
-              rel="noreferrer"
-              className="flex items-center gap-2 hover:text-[#e17100] transition-colors"
-            >
-              <img src={malt} alt="Malt" className="w-6 h-6 rounded-full" />
-              Malt
-            </a>
-            <a
-              href="https://comeup.com/fr/@mnajibguerchaoui"
-              target="_blank"
-              rel="noreferrer"
-              className="flex items-center gap-2 hover:text-[#e17100] transition-colors"
-            >
-              <img src={comeup} alt="ComeUp" className="w-6 h-6 rounded-full" />
-              ComeUp
-            </a>
-          </div>
-        </motion.div>
-      </div>
+
+          <Cta type="submit" variant="solid" className="w-full justify-center">
+            {t("contact.form.send")}
+          </Cta>
+        </form>
+
+        {/* Réseaux */}
+        <div className="mt-10 flex flex-wrap justify-center gap-3">
+          <a
+            href="https://github.com/MohnajibG"
+            target="_blank"
+            rel="noreferrer"
+            className={chipClasses}
+          >
+            <Github size={18} /> GitHub
+          </a>
+          <a
+            href="https://www.linkedin.com/in/najib-guerchaoui/"
+            target="_blank"
+            rel="noreferrer"
+            className={chipClasses}
+          >
+            <Linkedin size={18} /> LinkedIn
+          </a>
+          <a href="mailto:mngdevpro@gmail.com" className={chipClasses}>
+            <Mail size={18} /> {t("contact.links.email")}
+          </a>
+          <a href="tel:0658748308" className={chipClasses}>
+            <Phone size={18} /> {t("contact.links.phone")}
+          </a>
+        </div>
+
+        <div className="mt-4 flex flex-wrap justify-center gap-3">
+          <a
+            href="https://www.malt.fr/profile/najibguerchaoui"
+            target="_blank"
+            rel="noreferrer"
+            className={chipClasses}
+          >
+            <img
+              src="/logos/malt.svg"
+              alt="Malt"
+              className="h-4 w-4 rounded-full"
+            />
+            Malt
+          </a>
+          <a
+            href="https://mngdev.pro/home"
+            target="_blank"
+            rel="noreferrer"
+            className={chipClasses}
+          >
+            <img
+              src="/logos/logomngdev.png"
+              alt="mngdev.pro"
+              className="h-4 w-4 rounded-full"
+            />
+            mngdev.pro
+          </a>
+        </div>
+      </Panel>
     </section>
   );
 };

@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { useEffect } from "react";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Projects from "./pages/Projects";
@@ -16,37 +15,23 @@ const sections = [
 ];
 
 const App = () => {
-  useEffect(() => {
-    const handleScroll = () => {
-      const main = document.querySelector("main");
-      if (!main) return;
-      // (on ne gère plus le footer)
-    };
-
-    const main = document.querySelector("main");
-    main?.addEventListener("scroll", handleScroll);
-
-    return () => {
-      main?.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
   return (
-    <div className="flex flex-col min-h-screen bg-gradient-to-br from-[#021b36] to-[#032c58] text-white">
-      {/* Header animé */}
+    <div className="relative flex min-h-screen flex-col overflow-hidden bg-brand-abyss text-white">
+      {/* Fond : gradient de base + grille blueprint + halos lumineux */}
+      <div className="pointer-events-none fixed inset-0 bg-gradient-to-br from-brand-navy to-brand-navy-deep" />
+      <div className="bg-blueprint pointer-events-none fixed inset-0 opacity-60" />
+      <div className="pointer-events-none fixed -top-40 -left-40 h-96 w-96 rounded-full bg-brand-cyan/20 blur-[120px]" />
+      <div className="pointer-events-none fixed -right-40 bottom-0 h-96 w-96 rounded-full bg-brand-amber/15 blur-[120px]" />
+      <div className="bg-grain" />
 
       <Navbar />
 
-      {/* Contenu scrollable avec snap */}
-      <main
-        className="flex-grow h-screen overflow-y-scroll snap-y 
-      snap-proximity my-10"
-      >
+      <main className="app-scroll relative z-10 my-10 h-screen flex-grow snap-y snap-proximity overflow-y-scroll">
         {sections.map(({ id, Component }, index) => (
           <section
             key={id}
             id={id}
-            className="snap-start flex items-center justify-center px-6 my-20"
+            className="my-20 flex snap-start items-center justify-center px-6"
           >
             <motion.div
               initial={{ opacity: 0, y: 50 }}

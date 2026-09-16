@@ -3,6 +3,7 @@
     "home": "Home",
     "about": "About",
     "projects": "Projects",
+    "freelance": "Freelance",
     "contact": "Contact"
   },
   "logo": "MyPortfolio",
@@ -44,40 +45,7 @@
   },
   "projects": {
     "title": "My Projects",
-    "items": [
-      {
-        "id": "chesschain",
-        "title": "ChessChain – Web3 Chess Game",
-        "description": "Development of a Web3 application with React and TypeScript allowing two players to compete in chess while betting USDC tokens...",
-        "link": "#",
-        "github": "https://github.com/MohnajibG/ChessChain-microservices",
-        "type": "Web3"
-      },
-      {
-        "id": "mytroc",
-        "title": "MyTROC – Token Exchange App",
-        "description": "Development of a Web3 interface with React and TypeScript allowing users to create, execute, or cancel token swaps...",
-        "link": "#",
-        "github": "#",
-        "type": "Web3"
-      },
-      {
-        "id": "ucwaves",
-        "title": "UCWaves – Fullstack Web3 Development",
-        "description": "Complete development of a Web3 DApp and UC Wallet Chrome extension...",
-        "link": "#",
-        "github": "#",
-        "type": "Web3"
-      },
-      {
-        "id": "sook",
-        "title": "SOOK! – Fullstack Personal Project",
-        "description": "Creation of an online marketplace platform. Backend developed in Node.js/Express...",
-        "link": "https://sooki.netlify.app",
-        "github": "https://github.com/MohnajibG/Forentend-SOOK",
-        "type": "Fullstack"
-      }
-    ]
+    "viewMore": "See more →"
   },
   "about": {
     "title": "About Me",
@@ -87,5 +55,10 @@
       "My unique career path, with over 10 years of experience in management and business operations, has given me strong skills to manage complex projects, lead teams, and maintain a high level of quality.",
       "Rigorous, autonomous, and product-oriented, I design modern, secure, and scalable solutions while keeping a strong focus on user experience."
     ]
+  },
+  "freelance": {
+    "title": "My freelance profiles",
+    "malt": "Check out my Malt profile and completed projects.",
+    "website": "Visit my official website: overview, services and direct contact."
   }
 }

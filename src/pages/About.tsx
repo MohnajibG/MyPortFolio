@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import Panel from "../components/Panel";
+import SectionTag from "../components/SectionTag";
 
 const About = () => {
   const { t } = useTranslation();
@@ -7,43 +9,28 @@ const About = () => {
   const paragraphs = t("about.paragraphs", { returnObjects: true }) as string[];
 
   return (
-    <section className="min-h-screen">
-      {/* Titre */}
-      <motion.h2
-        initial={{ opacity: 0, x: -40 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-        className="text-3xl font-bold mb-5 ml-6  md:mt-60 md:mb-14  md:ml-20 flex items-center gap-3"
-        style={{ color: "#00bcff" }}
-      >
-        <span className="w-12 h-1 bg-[#e17100] rounded"></span>
-        {t("about.title")}
-      </motion.h2>
-      <div id="about" className="flex items-center justify-center px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 60 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          viewport={{ once: true, amount: 0.3 }}
-          className="max-w-3xl mx-auto bg-gradient-to-br from-white/10 to-white/5 
-                   p-5 rounded-2xl shadow-2xl backdrop-blur-md border border-white/10"
-        >
-          {/* Paragraphes traduits */}
+    <section className="mx-auto w-full max-w-3xl px-2">
+      <SectionTag index="01" path="/about" title={t("about.title")} />
+
+      <Panel label="about.md" bodyClassName="p-6 md:p-8">
+        <div className="space-y-6">
           {paragraphs.map((text, idx) => (
-            <motion.p
+            <motion.div
               key={idx}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ delay: 0.3 + idx * 0.2, duration: 0.8 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.15 + idx * 0.15, duration: 0.6 }}
               viewport={{ once: true }}
-              className="text-gray-200 leading-relaxed text-justify text-lg space-y-4 mb-4"
+              className="flex gap-4"
             >
-              {text}
-            </motion.p>
+              <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-brand-cyan" />
+              <p className="text-justify leading-relaxed text-gray-200">
+                {text}
+              </p>
+            </motion.div>
           ))}
-        </motion.div>
-      </div>
+        </div>
+      </Panel>
     </section>
   );
 };

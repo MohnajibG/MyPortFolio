@@ -1,39 +1,23 @@
-import { motion } from "framer-motion";
 import { Download } from "lucide-react";
+import Cta from "./Cta";
 
 const CVDownload = () => {
   return (
-    <section className="section text-center ">
-      {/* <h2 className="text-3xl font-bold mb-8 text-[#00bcff]">Mon CV</h2> */}
+    <div className="flex flex-wrap gap-3">
+      <Cta
+        href="/cv_fr.pdf"
+        download="CV_MohammedNajib_FR.pdf"
+        variant="solid"
+      >
+        <Download size={16} />
+        CV FR
+      </Cta>
 
-      <div className="flex justify-center ">
-        {/* CV Français */}
-        <motion.a
-          href="/cv_fr.pdf"
-          download="CV_MohammedNajib_FR.pdf"
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.95 }}
-          className="flex items-center gap-2 px-6 py-3 rounded-l-lg font-semibold text-white shadow-lg transition-colors"
-          style={{ backgroundColor: "#e17100" }}
-        >
-          <Download size={18} />
-          CV FR
-        </motion.a>
-
-        {/* CV Anglais */}
-        <motion.a
-          href="/cv_en.pdf"
-          download="CV_MohammedNajib_EN.pdf"
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.95 }}
-          className="flex items-center gap-2 px-6 py-3 rounded-r-lg font-semibold text-white shadow-lg transition-colors"
-          style={{ backgroundColor: "#00bcff" }}
-        >
-          <Download size={18} />
-          CV EN
-        </motion.a>
-      </div>
-    </section>
+      <Cta href="/cv_en.pdf" download="CV_MohammedNajib_EN.pdf" variant="ghost">
+        <Download size={16} />
+        CV EN
+      </Cta>
+    </div>
   );
 };
 
